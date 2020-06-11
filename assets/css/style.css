@@ -28,6 +28,7 @@ header nav {
 header h1 {
     padding-left: 0.2em;
     font-size: 3em;
+    font-family: "Consolas", "Lucida Console", "Monaco", "Courier New", "Courier", monospace;
 }
 header nav ul {
     list-style: none;
