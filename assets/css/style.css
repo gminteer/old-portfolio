@@ -17,6 +17,10 @@ header {
     justify-content: space-between;
     align-items: flex-end;
     color: white;
+    /* TODO: figure out how to deal with the part where the top navbar thingy kind of beaks the intra-page links becaause it's "not in the flow" so the links
+    are positing the sections right at the top if the navbar didn't exist and cover it up*/
+    position: absolute;
+    top: 0;
 }
 header nav {
     display: flex;
