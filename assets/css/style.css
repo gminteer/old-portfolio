@@ -27,7 +27,7 @@ header {
 header nav {
     display: flex;
     justify-content: flex-end;
-    border-bottom: 0.5em solid white;
+    border-bottom: 0.1em solid white;
     width: fit-content;
     margin-right: 1em;
 }
@@ -91,6 +91,7 @@ main h2 {
     justify-self: end;
     font-size: 3em;
     padding-right: 0.1em;
+    text-transform: lowercase;
 }
 .content-block {
     padding-top: 0.3em;
