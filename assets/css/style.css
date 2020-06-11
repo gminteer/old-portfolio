@@ -19,8 +19,10 @@ header {
     color: white;
     /* TODO: figure out how to deal with the part where the top navbar thingy kind of beaks the intra-page links becaause it's "not in the flow" so the links
     are positing the sections right at the top if the navbar didn't exist and cover it up*/
-    position: absolute;
+    position: fixed;
     top: 0;
+    z-index: 9999;
+    width: 100%;
 }
 header nav {
     display: flex;
