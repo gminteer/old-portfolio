@@ -1,21 +1,21 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" ng-app="myApp" ng-controller="fakeData">
     <head>
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <link rel="stylesheet" href="/assets/css/style.css">
+        <link rel="stylesheet" href="assets/css/style.css">
         <title>~gminteer/</title>
     </head>
     <body>
         <header>
-        <h1>~gminteer/ $</h1>
-        <nav>
-            <ul>
-                <li><a href="#about">About</a></li>
-                <li><a href="#work">Work</a></li>
-                <li><a href="#contact">Contact</a></li>
-            </ul>
-        </nav>
+            <h1>~gminteer/ $</h1>
+            <nav>
+                <ul>
+                    <li><a href="#about">About</a></li>
+                    <li><a href="#work">Work</a></li>
+                    <li><a href="#contact">Contact</a></li>
+                </ul>
+            </nav>
         </header>
         <section id="hero">
             <blockquote>"You miss<br><em>100%</em><br>of the shots you don't take"<br><span>--Albert Einstein</span></blockquote>
@@ -27,23 +27,17 @@
                 <figure>
                     <img src="http://placeimg.com/640/640/people" alt="">
                     <figcaption>
-                        <h3>Future Optimization Architect</h3>
+                        <h3>{{faker.name.jobTitle()}}</h3>
                         <p>
-                            Compressing the protocol won't do anything, we need to quantify the mobile SQL transmitter!
+                            {{faker.hacker.phrase()}}
                         </p>
                     </figcaption>
                 </figure>
                 <p>
-                   Autem maxime voluptatem. Blanditiis numquam consectetur nobis inventore unde quibusdam at voluptatem. Ducimus blanditiis et aliquam tempora 
-                   debitis necessitatibus omnis aut maxime. At repellendus dolore ut ipsam. Voluptates sint eveniet voluptatibus ut facere facere et. 
-                   Praesentium dolorem quia corporis laborum qui magni omnis voluptas. Aliquid a eum consequatur accusamus in quae et dolore incidunt. Explicabo
-                   dicta hic. Suscipit et unde sunt blanditiis. Molestiae vero veritatis ea laborum et quisquam exercitationem consequuntur eum. Omnis omnis 
-                   alias architecto ea odio. Asperiores doloribus in labore. Ratione perferendis dicta quia repudiandae voluptates modi nihil delectus 
-                   accusamus. Similique illum suscipit aut dolores commodi ut labore aut. Fuga repellendus rerum. Odit aperiam sint itaque cumque error amet
-                   veniam quasi autem. Excepturi dolorem tempora in quia dolores minima. Id eaque aut commodi temporibus ipsam. Dicta molestiae aspernatur
-                   voluptatem doloribus quae est iste. Beatae repellat impedit sed vel. Sunt aut incidunt. Est voluptas natus placeat qui aperiam. Minus 
-                   veritatis et eum. Odit nam quae itaque commodi nobis. Et sed assumenda voluptatem aut ut qui error cumque. Rerum dolores distinctio ut 
-                   laudantium esse. Quod officiis nam fuga vel.
+                    {{faker.lorem.paragraphs()}}
+                </p>
+                <p>
+                    {{faker.lorem.paragraph()}}
                 </p>
             </section>
             <h2>Work</h2>
@@ -51,64 +45,64 @@
                 <figure class="double">
                     <img src="http://placeimg.com/1280/1280/arch" alt="">
                     <figcaption>
-                        <h3>earum est alias</h3>
-                        <h4>Enim est libero in ut voluptatem recusandae qui.</h4>
+                        <h3>{{faker.commerce.productName()}}</h3>
+                        <h4>{{faker.lorem.sentence()}}</h4>
                     </figcaption>
                 </figure>
                 <figure class="tall">
                     <img src="http://placeimg.com/640/1280/animals" alt="">
                     <figcaption>
-                        <h3>est qui libero</h3>
-                        <h4>Enim unde sed asperiores quod qui.</h4>
+                        <h3>{{faker.commerce.productName()}}</h3>
+                        <h4>{{faker.lorem.sentence()}}</h4>
                     </figcaption>
                 </figure>
                 <figure class="wide">
                     <img src="http://placeimg.com/1280/640/nature" alt="">
                     <figcaption>
-                        <h3>dolore pariatur</h3>
-                        <h4>Iure cumque earum illum aut.</h4>
+                        <h3>{{faker.commerce.productName()}}</h3>
+                        <h4>{{faker.lorem.sentence()}}</h4>
                     </figcaption>
                 </figure>
                 <figure class="tall">
                     <img src="http://placeimg.com/640/1280/tech" alt="">
                     <figcaption>
-                        <h3>quam modi</h3>
-                        <h4>Magnam excepturi fuga reprehenderit explicabo eveniet explicabo.</h4>
+                        <h3>{{faker.commerce.productName()}}</h3>
+                        <h4>{{faker.lorem.sentence()}}</h4>
                     </figcaption>
                 </figure>
                 <figure>
                     <img src="http://placeimg.com/640/640/tech?r=1" alt="">
                     <figcaption>
-                        <h3>dolorum</h3>
-                        <h4>Ipsa suscipit dolores.</h4>
+                        <h3>{{faker.commerce.productName()}}</h3>
+                        <h4>{{faker.lorem.sentence()}}</h4>
                     </figcaption>
                 </figure>
                 <figure class="wide">
                     <img src="http://placeimg.com/1280/640/animals?r=1" alt="">
                     <figcaption>
-                        <h3>numquam</h3>
-                        <h4>Harum rerum deserunt enim et harum explicabo.</h4>
+                        <h3>{{faker.commerce.productName()}}</h3>
+                        <h4>{{faker.lorem.sentence()}}</h4>
                     </figcaption>
                 </figure>
                 <figure>
                     <img src="http://placeimg.com/640/640/tech?r=2" alt="">
                     <figcaption>
-                        <h3>eos est at</h3>
-                        <h4>Aperiam voluptatem nobis ea repellendus.</h4>
+                        <h3>{{faker.commerce.productName()}}</h3>
+                        <h4>{{faker.lorem.sentence()}}</h4>
                     </figcaption>
                 </figure>
                 <figure>
                     <img src="http://placeimg.com/640/640/nature?r=1" alt="">
                     <figcaption>
-                        <h3>vitae</h3>
-                        <h4>Quisquam maiores sit.</h4>
+                        <h3>{{faker.commerce.productName()}}</h3>
+                        <h4>{{faker.lorem.sentence()}}</h4>
                     </figcaption>
                 </figure>
                 <figure>
                     <img src="http://placeimg.com/640/640/arch?r=1" alt="">
                     <figcaption>
-                        <h3>eum nemo</h3>
-                        <h4>Laboriosam voluptatem aut quis sit tempore.</h4>
+                        <h3>{{faker.commerce.productName()}}</h3>
+                        <h4>{{faker.lorem.sentence()}}</h4>
                     </figcaption>
                 </figure>
             </section>
@@ -146,6 +140,9 @@
                 </a>
             </section>
         </main>
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.8.0/angular.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Faker/3.1.0/faker.min.js"></script>
+    <script src="assets/scripts/angularglue.js"></script>
     </body>
 </html>
 
