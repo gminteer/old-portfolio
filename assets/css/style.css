@@ -9,42 +9,10 @@ img {
     object-fit: cover;
 }
 
-header {
-    background-image: url("/assets/images/hero.jpg");
-    background-size: cover;
-    background-attachment: fixed;
-    display: flex;
-    justify-content: space-between;
-    align-items: flex-end;
-    color: white;
-    /* TODO: figure out how to deal with the part where the top navbar thingy kind of beaks the intra-page links becaause it's "not in the flow" so the links
-    are positing the sections right at the top if the navbar didn't exist and cover it up*/
-    position: fixed;
-    top: 0;
-    z-index: 9999;
-    width: 100%;
-}
-header nav {
-    display: flex;
-    justify-content: flex-end;
-    border-bottom: 0.1em solid white;
-    width: fit-content;
-    margin-right: 1em;
-}
-header h1 {
-    padding-left: 0.2em;
-    font-size: 3em;
-    font-family: "Consolas", "Lucida Console", "Monaco", "Courier New", "Courier", monospace;
-}
-header nav ul {
-    list-style: none;
-    display: flex;
-}
-header nav ul li a {
-    color: white;
-    font-size: 2em;
-    padding: 0.2em 0.5em;
-    text-decoration: none;
+:root {
+    --border-width: 0.4em;
+    --overlay-fill: rgba(0, 0, 0, 0.6);
+
 }
 
 #hero {
@@ -60,30 +28,78 @@ header nav ul li a {
     color: white;
 }
 #hero blockquote {
-    font-size: 2em;
+    font-size: xx-large;
     width: 40%;
     min-width: min-content;
-    background-color: rgba(0, 0, 0, 0.6);
+    background-color: var(--overlay-fill);
     text-align: center;
     padding: 0.4em 0.4em;
 }
 #hero blockquote em {
-    font-size: 3em;
+    font-size: 2.5em;
 }
-#hero blockquote span {
+#hero blockquote div {
     font-style: italic;
+    font-size: 0.8em;
+    text-align: right;
 }
 #hero aside {
     text-align: right;
+    font-style: italic;
+    font-size: smaller;
     position: absolute;
     bottom: 0;
     right: 0;
-    background-color: rgba(0, 0, 0, 0.6);
+    background-color: var(--overlay-fill);
+}
+
+header {
+    background-image: linear-gradient(var(--overlay-fill), var(--overlay-fill)), url(../images/hero.jpg);
+    background-size: cover;
+    background-attachment: fixed;
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-end;
+    color: white;
+    position: sticky;
+    top: 0;
+    z-index: 9999;
+    width: 100%;
+    height: 3.5em;
+}
+h1 {
+    padding-left: 0.2em;
+    font-size: 3em;
+    font-family: "Consolas", "Lucida Console", "Monaco", "Courier New", "Courier", monospace;
+}
+header nav {
+    display: flex;
+    justify-content: flex-end;
+    width: fit-content;
+    margin-right: 1em;
+    border-bottom: var(--border-width) solid white;
+}
+header nav ul {
+    list-style: none;
+    display: flex;
+}
+header nav ul li a {
+    color: white;
+    font-size: 2em;
+    padding: 0.2em 0.5em;
+    text-decoration: none;
+}
+.target {
+    display: block;
+    position: relative;
+    top: -3.5em;
+    visibility: hidden;
+    order: 9999;
 }
 
 main {
     display: grid;
-    grid-template-columns: minmax(auto, 1fr) minmax(min-content, 2fr);
+    grid-template-columns: 1fr 2fr;
     align-items: center;
     padding-top: 0.3em;
 }
@@ -93,13 +109,16 @@ main h2 {
     padding-right: 0.1em;
     text-transform: lowercase;
 }
+main h2: {
+    color: blue;
+}
 .content-block {
     padding-top: 0.3em;
     padding-bottom: 0.3em;
     padding-left: 0.6em;
     margin: 0.2em;
-    max-width: 100%;
-    border-left: 0.5em solid #000;
+    width: 100%;
+    border-left: var(--border-width) solid #000;
 }
 #about p {
     padding: 0.4em 3em;
@@ -116,54 +135,57 @@ main h2 {
     width: 100%;
 }
 #about figcaption h3 {
-    font-size: 1em;
     text-align: center;
 }
 #about figcaption p {
     font-style: italic;
-    font-size: 0.8em;
+    font-size: smaller;
     text-align: center;
 }
-#work {
+#gallery {
     display: grid;
     justify-items: center;
     grid-template-columns: repeat(auto-fill, 14em);
     grid-auto-rows: 14em;
     grid-gap: 0;
     grid-auto-flow: dense;
+    width: 100%;
 }
-#work figure {
+#gallery figure {
     display: flex;
     width: 14em;
     height: 14em;
     position: relative;
     overflow: hidden;
 }
-#work figcaption {
+#gallery figcaption {
     position: absolute;
     right: 0;
     bottom: 0;
     color: white;
-    background-color: rgba(0, 0, 0, 0.6);
+    background-color: var(--overlay-fill);
     text-align: right;
     width: 100%;
     height: 50%;
     padding: 0.2em 0 1em;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
 }
-#work figcaption h3 {
+#gallery figcaption h3 {
     margin-bottom: 0.1em;
-    font-size: 2.5vw;
+    font-size: larger;
     padding-right: 0.25em;
-    font-weight: bolder;
+    font-weight: bold;
     text-transform: uppercase;
 }
-#work figcaption h4 {
-    font-weight: lighter;
+#gallery figcaption p {
+    font-weight: light;
     font-style: italic;
-    font-size: 1.35vw;
+    font-size: smaller;
     padding-right: 1.25em;
 }
-#work .double {
+#gallery .double {
     width: 28em;
     height: 28em;
     grid-row: span 2;
@@ -180,6 +202,7 @@ main h2 {
     grid-row: span 2;
 }
 #contact {
+    width: 100%;
     margin: 0.2em;
     display: flex;
     flex-wrap: wrap;
@@ -192,8 +215,8 @@ main h2 {
     align-items: center;
     margin: 0.5em 0;
     color: black;
-    border-left: 0.5em solid black;
-    border-right: 0.5em solid black;
+    border-left: var(--border-width) solid black;
+    border-right: var(--border-width) solid black;
 }
 #contact figure img {
     width: 3em;
@@ -208,82 +231,72 @@ main h2 {
     }    
     #contact figure:hover {
         color: blue;
-        border-bottom: 0.5em solid blue;
+        border-bottom: var(--border-width) solid blue;
     }
     header nav:hover {
-        border-bottom: 0.5em solid blue;
+        border-bottom: var(--border-width) solid blue;
     } 
     header nav ul li a:hover {
         color: blue;
     }
 }
-@media screen and (min-width: 1400px){
-    /* vw font scaling starts wrecking my layout around here with my lorem titles so we switch to em scaling */
-    #work figcaption h3 {
-        font-size: 2.2em;
-    }
-    #work figcaption h4 {
-        font-size: 1.2em;
-    }
-}
+
 @media screen and (max-width: 1024px){
     main {
-        grid-template-columns: minmax(auto, 1fr) minmax(min-content, 4fr);
+        grid-template-columns: 0.8fr 3fr;
     }
-    #work {
+    #gallery {
         grid-template-columns: repeat(auto-fill, 12em);
         grid-auto-rows: 12em;
     }
-    #work figure {
+    #gallery figure {
         width: 12em;
         height: 12em;
     }
-    #work .double {
+    #gallery .double {
         width: 24em;
         height: 24em;
     }
-    #work .wide {
+    #gallery .wide {
         width: 24em;
         height: 12em;
     }
-    #work .tall {
+    #gallery .tall {
         width: 12em;
         height: 24em;
     }
-    /* this is probably a good time to stop scaling gallery text based on the viewport because it starts getting too small here */
-    #work figcaption h3 {
-        font-size: 1.6em;
+    #gallery figcaption h3 {
+        font-size: medium;
     }
-    #work figcaption h4 {
-        font-size: 0.75em;
+    #gallery figcaption p {
+        font-size: small;
     }
 }
 @media screen and (max-width: 768px) {
+    h1 {
+        font-size: 2em;
+    }
+    header nav ul li a {
+        font-size: 1.2em;
+    }
     main {
         display: flex;
         flex-direction: column;
         align-content: center;
         justify-content: center;
     }
-    #about figure {
-        margin: 0.4em;
-        width: 15em;
-    }
-    header h1 {
-        font-size: 2em;
-    }
-    header nav ul li a {
-        font-size: 1.2em;
-    }
     .content-block {
         margin: 0.2em 0;
         padding-left: 0;
         border-left: none;
-        border-top: 0.5em solid black;
+        border-top: var(--border-width) solid black;
+    }
+    #about figure {
+        margin: 0.4em;
+        width: 15em;
     }
     #contact {
-        border-top: 0.5em solid black;
-        width: 100%;
+        border-top: var(--border-width) solid black;
     }
     #contact figure {
         border-left: none;
@@ -293,11 +306,37 @@ main h2 {
     }
 }
 @media screen and (max-width: 425px) {
-    #contact {
-        flex-direction: column;
-    }
     header {
         flex-direction: column;
         align-items: center;
+    }
+    h1 {
+        font-size: 1.5em;
+    }
+    header nav ul li a {
+        font-size: medium;
+    }
+    #contact {
+        flex-direction: column;
+    }
+    #gallery {
+        grid-template-columns: repeat(auto-fill, 10em);
+        grid-auto-rows: 10em;
+    }
+    #gallery figure {
+        width: 10em;
+        height: 10em;
+    }
+    #gallery .double {
+        width: 20em;
+        height: 20em;
+    }
+    #gallery .wide {
+        width: 20em;
+        height: 10em;
+    }
+    #gallery .tall {
+        width: 10em;
+        height: 20em;
     }
 }

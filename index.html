@@ -7,23 +7,24 @@
         <title>~gminteer/</title>
     </head>
     <body>
+        <section id="hero">
+            <blockquote>"You miss<br><em>100%</em><br>of the shots you don't take"<br><div>--Albert Einstein</></blockquote>
+            <aside>Photo: Basile Morin / <a href="https://creativecommons.org/licenses/by-sa/4.0">CC BY-SA</a></aside>
+        </section>
         <header>
             <h1>~gminteer/ $</h1>
             <nav>
                 <ul>
-                    <li><a href="#about">About</a></li>
-                    <li><a href="#work">Work</a></li>
+                    <li><a href="#nav-about">About</a></li>
+                    <li><a href="#nav-work">Work</a></li>
                     <li><a href="#contact">Contact</a></li>
                 </ul>
             </nav>
         </header>
-        <section id="hero">
-            <blockquote>"You miss<br><em>100%</em><br>of the shots you don't take"<br><span>--Albert Einstein</span></blockquote>
-            <aside>Photo: Basile Morin / <a href="https://creativecommons.org/licenses/by-sa/4.0">CC BY-SA</a></aside>
-        </section>
         <main>
             <h2>About</h2>
-            <section id="about" class="content-block">
+            <section class="content-block" id="about">
+                <a class="target" id="nav-about"></a>
                 <figure>
                     <img src="http://placeimg.com/640/640/people" alt="">
                     <figcaption>
@@ -42,78 +43,75 @@
             </section>
             <h2>Work</h2>
             <section id="work" class="content-block">
-                <figure class="double">
-                    <img src="http://placeimg.com/1280/1280/arch" alt="">
-                    <figcaption>
-                        <h3>{{faker.commerce.productName()}}</h3>
-                        <h4>{{faker.lorem.sentence()}}</h4>
-                    </figcaption>
-                </figure>
-                <figure class="tall">
-                    <img src="http://placeimg.com/640/1280/animals" alt="">
-                    <figcaption>
-                        <h3>{{faker.commerce.productName()}}</h3>
-                        <h4>{{faker.lorem.sentence()}}</h4>
-                    </figcaption>
-                </figure>
-                <figure class="wide">
-                    <img src="http://placeimg.com/1280/640/nature" alt="">
-                    <figcaption>
-                        <h3>{{faker.commerce.productName()}}</h3>
-                        <h4>{{faker.lorem.sentence()}}</h4>
-                    </figcaption>
-                </figure>
-                <figure class="tall">
-                    <img src="http://placeimg.com/640/1280/tech" alt="">
-                    <figcaption>
-                        <h3>{{faker.commerce.productName()}}</h3>
-                        <h4>{{faker.lorem.sentence()}}</h4>
-                    </figcaption>
-                </figure>
-                <figure>
-                    <img src="http://placeimg.com/640/640/tech?r=1" alt="">
-                    <figcaption>
-                        <h3>{{faker.commerce.productName()}}</h3>
-                        <h4>{{faker.lorem.sentence()}}</h4>
-                    </figcaption>
-                </figure>
-                <figure class="wide">
-                    <img src="http://placeimg.com/1280/640/animals?r=1" alt="">
-                    <figcaption>
-                        <h3>{{faker.commerce.productName()}}</h3>
-                        <h4>{{faker.lorem.sentence()}}</h4>
-                    </figcaption>
-                </figure>
-                <figure>
-                    <img src="http://placeimg.com/640/640/tech?r=2" alt="">
-                    <figcaption>
-                        <h3>{{faker.commerce.productName()}}</h3>
-                        <h4>{{faker.lorem.sentence()}}</h4>
-                    </figcaption>
-                </figure>
-                <figure>
-                    <img src="http://placeimg.com/640/640/nature?r=1" alt="">
-                    <figcaption>
-                        <h3>{{faker.commerce.productName()}}</h3>
-                        <h4>{{faker.lorem.sentence()}}</h4>
-                    </figcaption>
-                </figure>
-                <figure>
-                    <img src="http://placeimg.com/640/640/arch?r=1" alt="">
-                    <figcaption>
-                        <h3>{{faker.commerce.productName()}}</h3>
-                        <h4>{{faker.lorem.sentence()}}</h4>
-                    </figcaption>
-                </figure>
+                <a class="target" id="nav-work"></a>
+                <div id="gallery">
+                    <figure class="double">
+                        <img src="http://placeimg.com/1280/1280/arch" alt="">
+                        <figcaption>
+                            <h3>{{faker.commerce.productName()}}</h3>
+                            <p>{{faker.lorem.sentence()}}</p>
+                        </figcaption>
+                    </figure>
+                    <figure class="tall">
+                        <img src="http://placeimg.com/640/1280/animals" alt="">
+                        <figcaption>
+                            <h3>{{faker.commerce.productName()}}</h3>
+                            <p>{{faker.lorem.sentence()}}</p>
+                        </figcaption>
+                    </figure>
+                    <figure class="wide">
+                        <img src="http://placeimg.com/1280/640/nature" alt="">
+                        <figcaption>
+                            <h3>{{faker.commerce.productName()}}</h3>
+                            <p>{{faker.lorem.sentence()}}</p>
+                        </figcaption>
+                    </figure>
+                    <figure class="tall">
+                        <img src="http://placeimg.com/640/1280/tech" alt="">
+                        <figcaption>
+                            <h3>{{faker.commerce.productName()}}</h3>
+                            <p>{{faker.lorem.sentence()}}</p>   
+                        </figcaption>
+                    </figure>
+                    <figure>
+                        <img src="http://placeimg.com/640/640/tech?r=1" alt="">
+                        <figcaption>
+                            <h3>{{faker.commerce.productName()}}</h3>
+                            <p>{{faker.lorem.sentence()}}</p>
+                        </figcaption>
+                    </figure>
+                    <figure class="wide">
+                        <img src="http://placeimg.com/1280/640/animals?r=1" alt="">
+                        <figcaption>
+                            <h3>{{faker.commerce.productName()}}</h3>
+                            <p>{{faker.lorem.sentence()}}</p>
+                        </figcaption>
+                    </figure>
+                    <figure>
+                        <img src="http://placeimg.com/640/640/tech?r=2" alt="">
+                        <figcaption>
+                            <h3>{{faker.commerce.productName()}}</h3>
+                            <p>{{faker.lorem.sentence()}}</p>
+                        </figcaption>
+                    </figure>
+                    <figure>
+                        <img src="http://placeimg.com/640/640/nature?r=1" alt="">
+                        <figcaption>
+                            <h3>{{faker.commerce.productName()}}</h3>
+                            <p>{{faker.lorem.sentence()}}</p>
+                        </figcaption>
+                    </figure>
+                    <figure>
+                        <img src="http://placeimg.com/640/640/arch?r=1" alt="">
+                        <figcaption>
+                            <h3>{{faker.commerce.productName()}}</h3>
+                            <p>{{faker.lorem.sentence()}}</p>
+                        </figcaption>
+                    </figure>
+                </div>
             </section>
             <h2>Contact</h2>
             <section id="contact">
-                <a href="tel:+18005551212">
-                    <figure>
-                        <img src="assets/images/telephone.svg" alt="Phone">
-                        <figcaption>(800) 555-1212</figcaption>
-                    </figure>
-                </a>
                 <a href="skype:gminteer?chat">
                     <figure>
                         <img src="assets/images/social-skype.svg" alt="Skype">
