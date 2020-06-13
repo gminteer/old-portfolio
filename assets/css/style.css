@@ -1,3 +1,11 @@
+:root {
+    --border-width: 0.4em;
+    --overlay-fill: rgba(0, 0, 0, 0.75);
+    --link-color: blue;
+    --link-fill: rgba(0, 0, 255, 0.3);
+    --link-fade-time: 0.2s;
+    --sans-font: "Open Sans", sans-serif;
+}
 * {
     margin: 0;
     padding: 0;
@@ -7,12 +15,6 @@
 img {
     width: 100%;
     object-fit: cover;
-}
-
-:root {
-    --border-width: 0.4em;
-    --overlay-fill: rgba(0, 0, 0, 0.6);
-
 }
 
 #hero {
@@ -29,8 +31,7 @@ img {
 }
 #hero blockquote {
     font-size: xx-large;
-    width: 40%;
-    min-width: min-content;
+    width: 35%;
     background-color: var(--overlay-fill);
     text-align: center;
     padding: 0.4em 0.4em;
@@ -64,30 +65,29 @@ header {
     position: sticky;
     top: 0;
     z-index: 9999;
-    width: 100%;
     height: 3.5em;
+    margin-bottom: 0.2em;
 }
 h1 {
-    padding-left: 0.2em;
+    padding-left: 0.25em;
     font-size: 3em;
     font-family: "Consolas", "Lucida Console", "Monaco", "Courier New", "Courier", monospace;
 }
 header nav {
     display: flex;
     justify-content: flex-end;
-    width: fit-content;
-    margin-right: 1em;
-    border-bottom: var(--border-width) solid white;
+    height: 100%;
+    align-items: flex-end;
 }
 header nav ul {
     list-style: none;
     display: flex;
 }
-header nav ul li a {
-    color: white;
+header nav a {
+    font-family: var(--sans-font);
     font-size: 2em;
+    color: white;
     padding: 0.2em 0.5em;
-    text-decoration: none;
 }
 .target {
     display: block;
@@ -99,25 +99,22 @@ header nav ul li a {
 
 main {
     display: grid;
-    grid-template-columns: 1fr 2fr;
+    grid-template-columns: 1fr 3fr;
     align-items: center;
-    padding-top: 0.3em;
 }
 main h2 {
     justify-self: end;
     font-size: 3em;
     padding-right: 0.1em;
     text-transform: lowercase;
-}
-main h2: {
-    color: blue;
+    font-family: var(--sans-font);
+    font-weight: lighter;
 }
 .content-block {
     padding-top: 0.3em;
     padding-bottom: 0.3em;
     padding-left: 0.6em;
     margin: 0.2em;
-    width: 100%;
     border-left: var(--border-width) solid #000;
 }
 #about p {
@@ -145,11 +142,10 @@ main h2: {
 #gallery {
     display: grid;
     justify-items: center;
-    grid-template-columns: repeat(auto-fill, 14em);
+    grid-template-columns: repeat(4, 14em);
     grid-auto-rows: 14em;
     grid-gap: 0;
     grid-auto-flow: dense;
-    width: 100%;
 }
 #gallery figure {
     display: flex;
@@ -170,7 +166,7 @@ main h2: {
     padding: 0.2em 0 1em;
     display: flex;
     flex-direction: column;
-    justify-content: space-around;
+    justify-content: space-between;
 }
 #gallery figcaption h3 {
     margin-bottom: 0.1em;
@@ -178,6 +174,7 @@ main h2: {
     padding-right: 0.25em;
     font-weight: bold;
     text-transform: uppercase;
+
 }
 #gallery figcaption p {
     font-weight: light;
@@ -202,12 +199,10 @@ main h2: {
     grid-row: span 2;
 }
 #contact {
-    width: 100%;
-    margin: 0.2em;
     display: flex;
     flex-wrap: wrap;
-    justify-content: space-between;
     align-items: center;
+    justify-content: space-between;
 }
 #contact figure {
     display: flex;
@@ -219,25 +214,56 @@ main h2: {
     border-right: var(--border-width) solid black;
 }
 #contact figure img {
-    width: 3em;
+    width: 4em;
 }
 #contact figcaption {
     padding: 0.1em 0.5em;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
 }
 
 @media (hover: hover) {
     a {
         text-decoration: none;
-    }    
-    #contact figure:hover {
-        color: blue;
-        border-bottom: var(--border-width) solid blue;
+    }
+    header nav {
+        border-bottom: var(--border-width) solid white;
     }
     header nav:hover {
-        border-bottom: var(--border-width) solid blue;
+        border-bottom-color: var(--link-color);
+        transition-duration: var(--link-fade-time);
     } 
     header nav ul li a:hover {
-        color: blue;
+        color: var(--link-color);
+        transition-duration: var(--link-fade-time);
+    }
+    #gallery figure::after {
+        content: "";
+        background-color: var(--link-fill);
+        position: absolute;
+        left: 0;
+        top: 0;
+        width: 100%;
+        height: 100%;
+        opacity: 0;
+    }
+    #gallery figure:hover::after {
+        opacity: 1;
+        transition-duration: var(--link-fade-time);
+    }
+    #contact a {
+        color: black;
+    }
+    #contact figure:hover {
+        color: var(--link-color);
+        border-left-color: var(--link-color);
+        border-right-color: var(--link-color);
+        transition-duration: var(--link-fade-time);
+    }
+}
+@media (hover: none) {
+    #gallery figure h3 {
+        color: var(--link-color);
+        text-decoration: underline;
     }
 }
 
@@ -290,6 +316,7 @@ main h2: {
         padding-left: 0;
         border-left: none;
         border-top: var(--border-width) solid black;
+        width: 100%;
     }
     #about figure {
         margin: 0.4em;
@@ -304,6 +331,9 @@ main h2: {
         padding-top: 0.4em;
         margin: 0 0.4em;
     }
+    #contact figure img {
+        width: 3em;
+    }
 }
 @media screen and (max-width: 425px) {
     header {
@@ -315,9 +345,6 @@ main h2: {
     }
     header nav ul li a {
         font-size: medium;
-    }
-    #contact {
-        flex-direction: column;
     }
     #gallery {
         grid-template-columns: repeat(auto-fill, 10em);
@@ -338,5 +365,11 @@ main h2: {
     #gallery .tall {
         width: 10em;
         height: 20em;
+    }
+    #contact {
+        flex-direction: column;
+    }
+    #contact figure img {
+        width: 2.5em;
     }
 }
