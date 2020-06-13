@@ -4,13 +4,14 @@
     --link-color: blue;
     --link-fill: rgba(0, 0, 255, 0.3);
     --link-fade-time: 0.2s;
-    --sans-font: "Open Sans", sans-serif;
+    --sans-font: "Open Sans", Arial, Helvetica, sans-serif;
 }
 * {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
-    font-family: "Palatino Linotype", "Book Antiqua", Palatino, serif;
+    font-family: "EB Garamond", "Palatino Linotype", "Book Antiqua", Palatino, serif;
+    outline: 1px solid red;
 }
 img {
     width: 100%;
@@ -52,6 +53,8 @@ img {
     bottom: 0;
     right: 0;
     background-color: var(--overlay-fill);
+    border: 0.2em solid black;
+    margin: 0.2em;
 }
 
 header {
@@ -169,6 +172,8 @@ main h2 {
     justify-content: space-between;
 }
 #gallery figcaption h3 {
+    font-family: var(--sans-font);
+    font-weight: lighter;
     margin-bottom: 0.1em;
     font-size: larger;
     padding-right: 0.25em;
@@ -250,6 +255,16 @@ main h2 {
         opacity: 1;
         transition-duration: var(--link-fade-time);
     }
+    #gallery figcaption {
+        z-index: 1;
+    }
+    #gallery figcaption p {
+        opacity: 0;
+    }
+    #gallery figure:hover figcaption p {
+        opacity: 1;
+        transition-duration: var(--link-fade-time);
+    }
     #contact a {
         color: black;
     }
@@ -299,11 +314,20 @@ main h2 {
     }
 }
 @media screen and (max-width: 768px) {
+    #hero blockquote {
+        width: fit-content;
+    }
+    header {
+        height: 2em;
+    }
     h1 {
         font-size: 2em;
     }
     header nav ul li a {
         font-size: 1.2em;
+    }
+    .target {
+        top: -2em;
     }
     main {
         display: flex;
@@ -316,7 +340,12 @@ main h2 {
         padding-left: 0;
         border-left: none;
         border-top: var(--border-width) solid black;
+        justify-self: center;
         width: 100%;
+    }
+    #work {
+        display: flex;
+        justify-content: center;
     }
     #about figure {
         margin: 0.4em;
@@ -336,15 +365,17 @@ main h2 {
     }
 }
 @media screen and (max-width: 425px) {
-    header {
-        flex-direction: column;
-        align-items: center;
-    }
     h1 {
-        font-size: 1.5em;
+        font-size: 1.175em;
+    }
+    header {
+        height: 1.5em;
     }
     header nav ul li a {
         font-size: medium;
+    }
+    .target {
+        top: -1.5em;
     }
     #gallery {
         grid-template-columns: repeat(auto-fill, 10em);
@@ -371,5 +402,15 @@ main h2 {
     }
     #contact figure img {
         width: 2.5em;
+    }
+}
+@media screen and (max-width: 320px) {
+    #about {
+        display: flex;
+        flex-direction: column;
+    }
+    #about figure {
+        float: none;
+        align-self: center;
     }
 }
