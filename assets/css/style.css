@@ -132,14 +132,13 @@ main h2 {
 #about figcaption {
     padding: 0.1em 0.4em;
     width: 100%;
+    text-align: center;
 }
 #about figcaption h3 {
-    text-align: center;
     font-family: var(--sans-font);
 }
 #about figcaption p {
     font-style: italic;
-    text-align: center;
 }
 /* look at my stuff */
 #gallery {
@@ -227,7 +226,7 @@ main h2 {
     padding: 0.1em 0.5em;
     font-family: var(--sans-font);
 }
-/* can't do hover bling on an iPhone */
+/* only do hover bling if the browser can handle it */
 @media (hover: hover) {
     a {
         text-decoration: none;
@@ -341,9 +340,6 @@ main h2 {
 }
 /* should probably ditch the two column layout when it's this narrow */
 @media screen and (max-width: 768px) {
-    #hero blockquote {
-        width: fit-content;
-    }
     header {
         height: 2em;
     }
@@ -353,7 +349,7 @@ main h2 {
     header nav ul li a {
         font-size: 1.2em;
     }
-    .target { /* .target: top is always -(header: height), but i don't think there's a way to explicitly explain that to Chrome */
+    .target { /* .target: top is always -(header: height), but i don't think there's a way to explicitly explain that to the browser */
         top: -2em;
     }
     main {
@@ -402,7 +398,7 @@ main h2 {
     header nav ul li a {
         font-size: medium;
     }
-    .target { /* .target: top is always -(header: height), but i don't think there's a way to explicitly explain that to Chrome */
+    .target { /* .target: top is always -(header: height), but i don't think there's a way to explicitly explain that to the browser */
         top: -1.5em;
     }
     #gallery {
