@@ -4,8 +4,8 @@ myApp.controller('about', ['$scope', function ($scope) {
     if(typeof d == 'undefined') { /* [every function in javascript is static](mind_blown.jpg)*/
         var d = {
             cardText: faker.name.jobTitle(),
-            longParagraph: faker.lorem.paragraphs(),
-            paragraph: faker.lorem.paragraph(),
+            longParagraph: faker.lorem.paragraphs() + faker.lorem.paragraphs() + faker.lorem.paragraphs(),
+            paragraph: faker.lorem.paragraphs(),
         };
     };
     $scope.cardTitle = d.cardTitle;
