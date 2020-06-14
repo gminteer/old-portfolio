@@ -353,7 +353,7 @@ main h2 {
     header nav ul li a {
         font-size: 1.2em;
     }
-    .target {
+    .target { /* .target: top is always -(header: height), but i don't think there's a way to explicitly explain that to Chrome */
         top: -2em;
     }
     main {
@@ -402,7 +402,7 @@ main h2 {
     header nav ul li a {
         font-size: medium;
     }
-    .target {
+    .target { /* .target: top is always -(header: height), but i don't think there's a way to explicitly explain that to Chrome */
         top: -1.5em;
     }
     #gallery {
