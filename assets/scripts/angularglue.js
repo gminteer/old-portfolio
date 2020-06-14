@@ -8,7 +8,6 @@ myApp.controller('about', ['$scope', function ($scope) {
             paragraph: faker.lorem.paragraphs(),
         };
     };
-    $scope.cardTitle = d.cardTitle;
     $scope.cardText = d.cardText;
     $scope.longParagraph = d.longParagraph;
     $scope.paragraph = d.paragraph;
