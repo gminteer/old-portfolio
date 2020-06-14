@@ -36,7 +36,6 @@ img {
     font-size: large;
     width: fit-content;
     background-color: var(--overlay-fill);
-    text-align: center;
     padding: 0.4em 0.4em;
     border: 0.125em solid var(--border-color);
 }
