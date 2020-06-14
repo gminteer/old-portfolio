@@ -13,17 +13,6 @@ myApp.controller('about', ['$scope', function ($scope) {
     $scope.longParagraph = d.longParagraph;
     $scope.paragraph = d.paragraph;
 }]);
-/* one double tile for the centerpiece */
-myApp.controller('doubleTile', ['$scope', function ($scope) {
-    if(typeof d == 'undefined') {
-        var d = {
-            title: faker.commerce.productName(),
-            text: faker.lorem.sentences()
-        };
-    };
-    $scope.title = d.title;
-    $scope.text = d.text;
-}]);
 /* two wide tiles for secondary emphasis */
 for(i = 0; i < 2; i++ ) {
     myApp.controller('wideTile' + i, ['$scope', function ($scope) {
