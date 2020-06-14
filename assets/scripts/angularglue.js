@@ -53,7 +53,7 @@ for(i = 0; i < 4; i++ ) {
 };
 /* grab a random fortune from a REST server some dude that works for Google set up as a personal joke */
 myApp.controller('fortuneData', function($scope, $http) {
-    $http.defaults.headers.common.Accept = 'text/json';
+    $http.defaults.headers.common.Accept = 'text/json'; /* if we don't tell the endpoint we want JSON we get XML (ewwwww!) */
     $http.get('https://api.ef.gy/fortune')
     .then(function(response) { /* success */
         /* censor things in /off/ because someone might get upset and the API doesn't let me filter */
