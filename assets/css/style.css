@@ -19,7 +19,7 @@ img {
     width: 100%;
     object-fit: cover;
 }
-/* https://youtu.be/B4JCehDOy54 */
+/* page hero */
 #hero {
     background-image: url("/assets/images/hero.jpg");
     background-size: cover;
