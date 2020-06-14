@@ -135,6 +135,7 @@ main h2 {
 }
 #about figcaption h3 {
     text-align: center;
+    font-family: var(--sans-font);
 }
 #about figcaption p {
     font-style: italic;
