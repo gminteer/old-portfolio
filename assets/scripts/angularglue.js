@@ -66,7 +66,7 @@ myApp.controller('fortuneData', function($scope, $http) {
             $scope.source = response.data.file + "#" + response.data['file-id']; /* it can't be "response.data.file-id" because of the "-" character */
         };
     }, function(response) { /* failure */
-        $scope.text = "something wen't wrong :("
-        $scope.source = "This Website"
+        $scope.text = 'something went wrong :(';
+        $scope.source = 'This Website';
     });
 });
