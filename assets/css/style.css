@@ -225,7 +225,7 @@ main h2 {
 }
 #contact figcaption {
     padding: 0.1em 0.5em;
-    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    font-family: var(--sans-font);
 }
 /* can't do hover bling on an iPhone */
 @media (hover: hover) {
