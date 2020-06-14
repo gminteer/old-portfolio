@@ -1,10 +1,9 @@
 var myApp = angular.module('myApp', []);
 /* can't directly attach angular.js to a random data source or it gets cranky */
 myApp.controller('about', ['$scope', function ($scope) {
-    if(typeof d == 'undefined') {
+    if(typeof d == 'undefined') { /* [every function in javascript is static](mind_blown.jpg)*/
         var d = {
-            cardTitle: faker.name.jobTitle(),
-            cardText: faker.hacker.phrase(),
+            cardText: faker.name.jobTitle(),
             longParagraph: faker.lorem.paragraphs(),
             paragraph: faker.lorem.paragraph(),
         };

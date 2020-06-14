@@ -295,6 +295,13 @@ main h2 {
         background-color: black;
         color: lightgray;
     }
+    #about figure {
+        border: 0.1em solid slategray;
+    }
+    #about figcaption {
+        background-color: slategray;
+        color: lightgray;
+    }
     #gallery figcaption {
         color: lightgray;
     }
