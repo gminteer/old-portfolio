@@ -150,7 +150,7 @@ main h2 {
     grid-auto-flow: dense;
 }
 /* actual tile styles */
-#gallery figure {
+#gallery a {
     display: flex;
     width: 14em;
     height: 14em;
@@ -242,7 +242,7 @@ main h2 {
         color: var(--link-color);
         transition-duration: var(--link-fade-time);
     }
-    #gallery figure::after {
+    #gallery a::after {
         content: "";
         background-color: var(--link-fill);
         position: absolute;
@@ -252,7 +252,7 @@ main h2 {
         height: 100%;
         opacity: 0;
     }
-    #gallery figure:hover::after {
+    #gallery a:hover::after {
         opacity: 1;
         transition-duration: var(--link-fade-time);
     }
@@ -262,7 +262,7 @@ main h2 {
     #gallery figcaption p {
         opacity: 0;
     }
-    #gallery figure:hover figcaption p {
+    #gallery a:hover figcaption p {
         opacity: 1;
         transition-duration: var(--link-fade-time);
     }
@@ -278,7 +278,7 @@ main h2 {
 }
 /* should probably give some kind of visual indication you can tap on the tiles in the gallery */
 @media (hover: none) {
-    #gallery figure h3 {
+    #gallery a h3 {
         color: var(--link-color);
         text-decoration: underline;
     }
@@ -315,7 +315,7 @@ main h2 {
         grid-template-columns: repeat(auto-fill, 12em);
         grid-auto-rows: 12em;
     }
-    #gallery figure {
+    #gallery a {
         width: 12em;
         height: 12em;
     }
@@ -405,7 +405,7 @@ main h2 {
         grid-template-columns: repeat(auto-fill, 10em);
         grid-auto-rows: 10em;
     }
-    #gallery figure {
+    #gallery a {
         width: 10em;
         height: 10em;
     }
