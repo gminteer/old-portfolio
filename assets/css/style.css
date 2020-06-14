@@ -196,12 +196,12 @@ main h2 {
     grid-row: span 2;
     grid-column: span 2;
 }
-#work .wide {
+#gallery .wide {
     width: 28em;
     height: 14em;
     grid-column: span 2;
 }
-#work .tall {
+#gallery .tall {
     width: 14em;
     height: 28em;
     grid-row: span 2;
