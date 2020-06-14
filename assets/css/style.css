@@ -1,10 +1,11 @@
 /* variables */
 :root {
     --border-width: 0.4em;
-    --overlay-fill: rgba(0, 0, 0, 0.75);
+    --border-color: black;
     --link-color: blue;
     --link-fill: rgba(0, 0, 255, 0.3);
     --link-fade-time: 0.2s;
+    --overlay-fill: rgba(0, 0, 0, 0.75);
     --sans-font: "Open Sans", Arial, Helvetica, sans-serif;
 }
 /* globals */
@@ -37,7 +38,7 @@ img {
     background-color: var(--overlay-fill);
     text-align: center;
     padding: 0.4em 0.4em;
-    border: 0.125em solid black;
+    border: 0.125em solid var(--border-color);
 }
 #hero blockquote div {
     font-style: italic;
@@ -51,7 +52,7 @@ img {
     bottom: 0;
     right: 0;
     background-color: var(--overlay-fill);
-    border: 0.125em solid black;
+    border: 0.125em solid var(--border-color);
     margin: 0.2em;
 }
 /* the stuff glued at the top of the screen */
@@ -116,7 +117,7 @@ main h2 {
     padding-bottom: 0.3em;
     padding-left: 0.6em;
     margin: 0.2em;
-    border-left: var(--border-width) solid #000;
+    border-left: var(--border-width) solid var(--border-color);
 }
 /* about_me.txt */
 #about p {
@@ -217,9 +218,9 @@ main h2 {
     flex-direction: column;
     align-items: center;
     margin: 0.5em 0;
-    color: black;
-    border-left: var(--border-width) solid black;
-    border-right: var(--border-width) solid black;
+    color: var(--border-color);
+    border-left: var(--border-width) solid var(--border-color);
+    border-right: var(--border-width) solid var(--border-color);
 }
 #contact figure img {
     width: 4em;
@@ -269,7 +270,7 @@ main h2 {
         transition-duration: var(--link-fade-time);
     }
     #contact a {
-        color: black;
+        color: var(--border-color);
     }
     #contact figure:hover {
         color: var(--link-color);
@@ -283,6 +284,22 @@ main h2 {
     #gallery figure h3 {
         color: var(--link-color);
         text-decoration: underline;
+    }
+}
+/* some people don't like black on white */
+@media (prefers-color-scheme: dark) {
+    :root {
+        --border-color: gray;
+    }
+    body {
+        background-color: black;
+        color: lightgray;
+    }
+    #gallery figcaption {
+        color: lightgray;
+    }
+    .mono-black {
+        filter: invert(100%);
     }
 }
 /* things get smaller, pt 1 */
@@ -344,7 +361,7 @@ main h2 {
         margin: 0.2em 0;
         padding-left: 0;
         border-left: none;
-        border-top: var(--border-width) solid black;
+        border-top: var(--border-width) solid var(--border-color);
         justify-self: center;
         width: 100%;
     }
@@ -357,7 +374,7 @@ main h2 {
         width: 15em;
     }
     #contact {
-        border-top: var(--border-width) solid black;
+        border-top: var(--border-width) solid var(--border-color);
     }
     #contact figure {
         border-left: none;
