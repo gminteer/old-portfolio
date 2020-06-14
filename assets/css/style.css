@@ -340,6 +340,9 @@ main h2 {
 }
 /* should probably ditch the two column layout when it's this narrow */
 @media screen and (max-width: 768px) {
+    #hero blockquote pre {
+        font-size: 3vw;
+    }
     header {
         height: 2em;
     }
@@ -389,6 +392,9 @@ main h2 {
 }
 /* things get smaller, pt 2 */
 @media screen and (max-width: 425px) {
+    #hero {
+        height: 20em;
+    }
     h1 {
         font-size: 1.175em;
     }
