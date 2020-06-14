@@ -4,7 +4,7 @@
     --border-color: black;
     --link-color: blue;
     --link-fill: rgba(0, 0, 255, 0.3);
-    --link-fade-time: 0.2s;
+    --link-fade-time: 0.55s;
     --overlay-fill: rgba(0, 0, 0, 0.75);
     --sans-font: "Open Sans", Arial, Helvetica, sans-serif;
 }
