@@ -185,7 +185,6 @@ main h2 {
 #gallery figcaption p {
     font-weight: light;
     font-style: italic;
-    font-size: smaller;
     padding-right: 1.25em;
 }
 /* non-standard tile sizes */
