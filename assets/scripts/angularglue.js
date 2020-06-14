@@ -56,7 +56,7 @@ myApp.controller('fortuneData', function($scope, $http) {
     $http.defaults.headers.common.Accept = 'text/json';
     $http.get('https://api.ef.gy/fortune')
     .then(function(response) { /* success */
-        /* censor things in /off/ because someone might get upset and the API doesn't let me exclude categories */
+        /* censor things in /off/ because someone might get upset and the API doesn't let me filter */
         if(response.data.file.includes('/off/')) {
             $scope.text = 'You miss 100% of the shots you don\'t take.';
             $scope.source = 'Albert Einstein';
