@@ -1,4 +1,4 @@
-# gminteer.github.io
+# [gminteer.github.io](https://gminteer.github.io)
 ## HTML, CSS, mediaqueries, AngularJS
 ![](readme/screenshot.jpg)
 
