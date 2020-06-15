@@ -1,3 +1,6 @@
-# If you can read this, I didn't deploy this github pages website correctly.
+# gminteer.github.io
+## HTML, CSS, mediaqueries, AngularJS
+![](readme/screenshot.jpg)
 
-Please insult me [here](mailto:gminteer@gmail.com). kthx
+This respository is the landing page and portfolio for my github account: a responsive website supporting tablets, phones, and dark mode. Uses AngularJS
+and faker.js to fill in the page with randomly generated lorem content. At this point it's mostly a design mockup: content coming soon! 
