@@ -7,50 +7,50 @@ myApp.controller('about', ['$scope', function ($scope) {
             longParagraph: faker.lorem.paragraphs() + " " + faker.lorem.paragraphs() + " " + faker.lorem.paragraphs(),
             paragraph: faker.lorem.paragraphs(),
         };
-    };
+    }
     $scope.cardText = d.cardText;
     $scope.longParagraph = d.longParagraph;
     $scope.paragraph = d.paragraph;
 }]);
 /* two wide tiles for secondary emphasis */
-for(i = 0; i < 2; i++ ) {
+for(var i = 0; i < 2; i++ ) {
     myApp.controller('wideTile' + i, ['$scope', function ($scope) {
         if(typeof d == 'undefined') {
             var d = {
                 title: faker.commerce.productName(),
                 text: faker.lorem.sentence()
             };
-        };
+        }
         $scope.title = d.title;
         $scope.text = d.text;
     }]);
-};
+}
 /* two tall tiles for things that require more wordy commentary and/or tertiary emphasis */
-for(i = 0; i < 2; i++ ) {
+for(var i = 0; i < 2; i++ ) {
     myApp.controller('tallTile' + i, ['$scope', function ($scope) {
         if(typeof d == 'undefined') {
             var d = {
                 title: faker.hacker.adjective() + ' ' + faker.hacker.noun(),
                 text: faker.lorem.paragraph()
             };
-        };
+        }
         $scope.title = d.title;
         $scope.text = d.text;
     }]);
-};
+}
 /* four "normal" tiles */
-for(i = 0; i < 4; i++ ) {
+for(var i = 0; i < 4; i++ ) {
     myApp.controller('tile' + i, ['$scope', function ($scope) {
         if(typeof d == 'undefined') {
             var d = {
                 title: faker.hacker.adjective() + ' ' + faker.hacker.noun(),
                 text: faker.lorem.sentence()
             };
-        };
+        }
         $scope.title = d.title;
         $scope.text = d.text;
     }]);
-};
+}
 /* grab a random fortune from a REST server some dude that works for Google set up as a personal joke */
 myApp.controller('fortuneData', function($scope, $http) {
     $http.defaults.headers.common.Accept = 'text/json'; /* if we don't tell the endpoint we want JSON we get XML (ewwwww!) */
@@ -63,7 +63,7 @@ myApp.controller('fortuneData', function($scope, $http) {
         } else {
             $scope.text = response.data.cookie;
             $scope.source = response.data.file + "#" + response.data['file-id']; /* it can't be "response.data.file-id" because of the "-" character */
-        };
+        }
     }, function(response) { /* failure */
         $scope.text = 'something went wrong :(';
         $scope.source = 'This Website';
