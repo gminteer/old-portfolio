@@ -22,6 +22,7 @@ img {
 /* page hero */
 #hero {
     background-image: url("/assets/images/hero.jpg");
+    background-size: cover;
     background-attachment: fixed;
     background-position: top;
     display: flex;
@@ -408,6 +409,14 @@ main h2 {
     .target { /* .target: top is always -(header: height), but i don't think there's a way to explicitly explain that to the browser */
         top: -1.5em;
     }
+    #about {
+        display: flex;
+        flex-direction: column;
+    }
+    #about figure {
+        float: none;
+        align-self: center;
+    }
     #gallery {
         grid-template-columns: repeat(auto-fill, 10em);
         grid-auto-rows: 10em;
@@ -433,16 +442,5 @@ main h2 {
     }
     #contact figure img {
         width: 2.5em;
-    }
-}
-/* a couple of slight adjustments so the site doesn't look broken on a potato */
-@media screen and (max-width: 320px) {
-    #about {
-        display: flex;
-        flex-direction: column;
-    }
-    #about figure {
-        float: none;
-        align-self: center;
     }
 }
