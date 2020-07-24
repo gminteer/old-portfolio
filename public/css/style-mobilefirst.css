@@ -2,11 +2,12 @@
 :root {
   --border-width: 0.1em;
   --border-color: black;
-  --border: var(--border-width) solid var(--border-color);
   --link-color: blue;
+  --border: var(--border-width) solid var(--border-color);
+  --link-border: var(--border-width) solid var(--link-color);
   --link-fill: rgba(0, 0, 128, 0.8);
-  --link-fade-time: 0.55s;
   --overlay-fill: rgba(0, 0, 0, 0.8);
+  --link-fade-time: 0.55s;
   --sans-font: 'Open Sans', Arial, Helvetica, sans-serif;
 }
 /* globals */
@@ -86,6 +87,7 @@ header nav {
   justify-content: flex-end;
   height: 100%;
   align-items: flex-end;
+  border-bottom: var(--border-width) solid white;
 }
 header nav ul {
   list-style: none;
@@ -95,6 +97,8 @@ header nav a {
   font-family: var(--sans-font);
   font-size: small;
   padding: 0.2em 0.5em;
+  border: none;
+  text-decoration: none;
 }
 /* hack to get around the stuff being glued on top of the screen not being considered when the browser jumps to relative links on the same page */
 .target {
@@ -121,7 +125,7 @@ main {
   margin: 0.2em 0;
   padding-top: 0.3em;
   padding-bottom: 0.3em;
-  border-top: var(--border-width) solid var(--border-color);
+  border-top: var(--border);
   justify-self: center;
   width: 100%;
 }
@@ -244,8 +248,8 @@ main {
   align-items: center;
   padding: 0.5em;
   color: var(--border-color);
-  border-left: var(--border-width) solid var(--link-color);
-  border-right: var(--border-width) solid var(--link-color);
+  border-left: var(--link-border);
+  border-right: var(--link-border);
 }
 #contact figure img {
   width: 2em;
