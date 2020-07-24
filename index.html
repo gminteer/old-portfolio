@@ -68,19 +68,61 @@
               </figcaption>
             </figure>
           </a>
-          <a href="#">
-            <figure ng-controller="tile0">
-              <img src="https://placeimg.com/640/640/tech?r=1" alt="randomly generated placeholder">
-              <figcaption>
-                <span>
-                  <h3>{{ ::title }}</h3>
-                  <i class="material-icons">launch</i>
-                </span>
-                <p>{{ ::text }}</p>
-              </figcaption>
-            </figure>
-          </a>
-        </div>
+          <!-- tile templates -->
+          <script type="text/x-template" id="tile-template">
+            <a :href="href">
+              <figure>
+                <img :src="src" alt="randomly generated placeholder">
+                <figcaption>
+                  <span>
+                    <h3>{{ title }}</h3>
+                    <i class="material-icons">launch</i>
+                  </span>
+                  <p>{{ text }}</p>
+                </figcaption>
+              </figure>
+            </a>
+          </script>
+          <script type="text/x-template" id="wide-tile-template">
+            <a :href="href" class="wide">
+              <figure>
+                <img :src="src" alt="randomly generated placeholder">
+                <figcaption>
+                  <span>
+                    <h3>{{ title }}</h3>
+                    <i class="material-icons">launch</i>
+                  </span>
+                  <p>{{ text }}</p>
+                </figcaption>
+              </figure>
+            </a>
+          </script>
+          <script type="text/x-template" id="tall-tile-template">
+            <a :href="href" class="tall">
+              <figure>
+                <img :src="src" alt="randomly generated placeholder">
+                <figcaption>
+                  <span>
+                    <h3>{{ title }}</h3>
+                    <i class="material-icons">launch</i>
+                  </span>
+                  <p>{{ text }}</p>
+                </figcaption>
+              </figure>
+            </a>
+          </script>
+          <!-- tiles -->
+          <wide-tile size="640" keyword="architecture" href="#"></wide-tile>
+          <tall-tile size="640" keyword="animals" href="#"></tall-tile>
+          <tile size="640" keyword="tech" href="#"></tile>
+          <wide-tile size="640" keyword="nature" href="#"></wide-tile>
+          <tall-tile size="640" keyword="tech" href="#"></tall-tile>
+          <tile size="640" keyword="nature" href="#"></tile>
+          <tile size="640" keyword="animals" href="#"></tile>
+          <tile size="640" keyword="tech" href="#"></tile>
+          <tile size="640" keyword="nature" href="#"></tile>
+          <tile size="640" keyword="animals" href="#"></tile>
+          </div>
       </section>
       <h2>Contact</h2>
       <section id="contact" class="content-block">
