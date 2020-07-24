@@ -2,7 +2,7 @@
 :root {
     --border-width: 0.4em;
     --border-color: black;
-    --link-color: blue;
+    --link-color: blue; /* There's probably a way to ask the browser what the default link color is*/
     --link-fill: rgba(0, 0, 255, 0.3);
     --link-fade-time: 0.55s;
     --overlay-fill: rgba(0, 0, 0, 0.75);

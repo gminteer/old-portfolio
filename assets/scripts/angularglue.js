@@ -66,7 +66,7 @@ myApp.controller('fortuneData', function($scope, $http) {
         }
     }, function(response) { /* failure */
         $scope.text = 'something went wrong :(';
-        $scope.source = 'This Website';
+        $scope.source = '- This Website';
         console.error(response); /* proper error handling */
     });
 });
