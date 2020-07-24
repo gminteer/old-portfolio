@@ -25,7 +25,7 @@ img {
 }
 /* page hero */
 #hero {
-  background-image: url('/assets/images/hero.jpg');
+  background-image: url('/public/img/hero.jpg');
   background-size: cover;
   background-attachment: fixed;
   background-position: top;
@@ -60,7 +60,7 @@ img {
 }
 /* the stuff glued at the top of the screen */
 header {
-  background-image: linear-gradient(var(--overlay-fill), var(--overlay-fill)), url(../images/hero.jpg);
+  background-image: linear-gradient(var(--overlay-fill), var(--overlay-fill)), url(/public/img/hero.jpg);
   background-size: cover;
   background-attachment: fixed;
   display: flex;

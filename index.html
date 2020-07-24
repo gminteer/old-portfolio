@@ -1,173 +1,116 @@
 <!DOCTYPE html>
 <html lang="en" ng-app="myApp">
-    <head>
-        <meta charset="UTF-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Open Sans">
-        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=EB Garamond">
-        <link rel="stylesheet" href="assets/css/style.css">
-        <title>portfolio_template.html</title>
-    </head>
-    <body>
-        <!-- spash screen -->
-        <section id="hero">
-            <blockquote ng-controller="fortuneData">
-                <pre>{{ ::text }}</pre>
-                <br>
-                <div>{{ ::source }}</div>
-            </blockquote>
-            <aside>(downsampled) Photo: Basile Morin / <a href="https://creativecommons.org/licenses/by-sa/4.0">CC BY-SA</a></aside>
-        </section>
-        <header>
-            <h1>~gminteer/ $</span></h1>
-            <nav>
-                <ul>
-                    <li><a href="#nav-about">About</a></li>
-                    <li><a href="#nav-work">Work</a></li>
-                    <li><a href="#contact">Contact</a></li> <!-- #contact doesn't get an adjusted anchor because it's the last thing on the page and it'll never
-                    actually get positioned at the top of the browser viewport (under the pos: fixed navbar) -->
-                </ul>
-            </nav>
-        </header>
-        <main>
-            <h2>About</h2>
-            <section class="content-block" id="about" ng-controller="about">
-                <!-- a card and some text -->
-                <a class="target" id="nav-about"></a>
-                <figure>
-                    <img src="assets/images/recent_headshot.jpg" alt="the creator of this website wearing a funny hat">
-                    <figcaption>
-                        <h3>Greg Minteer</h3>
-                        <p>
-                            {{ ::cardText }}
-                        </p>
-                    </figcaption>
-                </figure>
-                <p>
-                    {{ ::longParagraph }}
-                </p>
-                <p>
-                    {{ ::paragraph }}
-                </p>
-            </section>
-            <h2>Work</h2>
-            <section id="work" class="content-block">
-                <a class="target" id="nav-work"></a>
-                <div id="gallery">
-                    <a href="https://mayorgak.github.io/lyric-look-up/" class="double">
-                        <figure>
-                            <img src="assets/images/lyric-look-up.jpg" alt="the website equivalent of hello_world.html">
-                            <figcaption>
-                                <h3>Lyric Look-Up</h3>
-                                <p>Sing along with your favorite Spotify songs.</p>
-                                <p>Buzzwords: HTML, CSS, JavaScript, Bulma CSS, OAuth PKCE</p>
-                            </figcaption>
-                        </figure>
-                    </a>
-                    <a href="#">
-                        <figure ng-controller="tile0">
-                            <img src="https://placeimg.com/640/640/tech?r=1" alt="randomly generated placeholder">
-                            <figcaption>
-                                <h3>{{ ::title }}</h3>
-                                <p>{{ ::text }}</p>
-                            </figcaption>
-                        </figure>
-                    </a>
-                    <a href="https://google.com" class="tall">
-                        <figure ng-controller="tallTile0">
-                            <img src="https://placeimg.com/640/1280/animals" alt="randomly generated placeholder">
-                            <figcaption>
-                                <h3>{{ ::title }}</h3>
-                                <p>{{ ::text }}</p>
-                            </figcaption>
-                        </figure>
-                    </a>
-                    <a href="https://www.yahoo.com" class="wide">
-                        <figure ng-controller="wideTile0">
-                            <img src="https://placeimg.com/1280/640/nature" alt="randomly generated placeholder">
-                            <figcaption>
-                                <h3>{{ ::title }}</h3>
-                                <p>{{ ::text }}</p>
-                            </figcaption>
-                        </figure>
-                    </a>
-                    <a href="#">
-                        <figure ng-controller="tile1">
-                            <img src="https://placeimg.com/640/640/tech?r=2" alt="randomly generated placeholder">
-                            <figcaption>
-                                <h3>{{ ::title }}</h3>
-                                <p>{{ ::text }}</p>
-                            </figcaption>
-                        </figure>
-                    </a>
-                    <a href="https://www.msn.com" class="tall">
-                        <figure ng-controller="tallTile1">
-                            <img src="https://placeimg.com/640/1280/tech" alt="randomly generated placeholder">
-                            <figcaption>
-                                <h3>{{ ::title }}</h3>
-                                <p>{{ ::text }}</p>   
-                            </figcaption>
-                        </figure>
-                    </a>
-                    <a href="https://www.aol.com" class="wide">
-                        <figure ng-controller="wideTile1">
-                            <img src="https://placeimg.com/1280/640/animals?r=1" alt="randomly generated placeholder">
-                            <figcaption>
-                                <h3>{{ ::title }}</h3>
-                                <p>{{ ::text }}</p>
-                            </figcaption>
-                        </figure>
-                    </a>
-                    <a href="#">
-                        <figure ng-controller="tile2">
-                            <img src="https://placeimg.com/640/640/nature?r=1" alt="randomly generated placeholder">
-                            <figcaption>
-                                <h3>{{ ::title }}</h3>
-                                <p>{{ ::text }}</p>
-                            </figcaption>
-                        </figure>
-                    </a>
-                    <a href="#">
-                        <figure ng-controller="tile3">
-                            <img src="https://placeimg.com/640/640/arch?r=1" alt="randomly generated placeholder">
-                            <figcaption>
-                                <h3>{{ ::title }}</h3>
-                                <p>{{ ::text }}</p>
-                            </figcaption>
-                        </figure>
-                    </a>
-                </div>
-            </section>
-            <h2>Contact</h2>
-            <section id="contact" class="content-block">
-                <a href="mailto:gminteer@gmail.com">
-                    <figure class="mono-black">
-                        <img src="assets/images/email.svg" alt="Email">
-                        <figcaption>gminteer@gmail.com</figcaption>
-                    </figure>
-                </a>
-                <a href="skype:gminteer?chat">
-                    <figure>
-                        <img src="assets/images/social-skype.svg" alt="Skype">
-                        <figcaption>gminteer</figcaption>
-                    </figure>
-                </a>
-                <a href="https://linkedin.com/gminteer">
-                    <figure>
-                        <img src="assets/images/social-linkedin.svg" alt="LinkedIn">
-                        <figcaption>linkedin.com/gminteer</figcaption>
-                    </figure>
-                </a>
-                <a href="https://github.com/gminteer">
-                    <figure class="mono-black">
-                        <img src="assets/images/social-github.svg" alt="github">
-                        <figcaption>github.com/gminteer</figcaption>
-                    </figure>
-                </a>
-            </section>
-        </main>
-        <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.8.0/angular.min.js"></script>
-        <script src="https://cdnjs.cloudflare.com/ajax/libs/Faker/3.1.0/faker.min.js"></script>
-        <script src="assets/scripts/angularglue.js"></script>
-    </body>
-</html>
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Open Sans">
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=EB Garamond">
+  <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
+  <link rel="stylesheet" href="public/css/style-mobilefirst.css">
+  <title>portfolio_template.html</title>
+</head>
+<body>
+  <!-- spash screen -->
+  <section id="hero">
+    <blockquote>
+      <pre>{{ text }}</pre>
+      <br>
+      <div>{{ source }}</div>
+    </blockquote>
+    <aside>(downsampled) Photo: Basile Morin / <a href="https://creativecommons.org/licenses/by-sa/4.0">CC BY-SA</a></aside>
+  </section>
+  <header>
+    <h1>~gminteer/ $</span></h1>
+    <nav>
+      <ul>
+        <li><a href="#nav-about">About</a></li>
+        <li><a href="#nav-work">Work</a></li>
+        <li><a href="#contact">Contact</a></li> <!-- #contact doesn't get an adjusted anchor because it's the last thing on the page and it'll never
+          actually get positioned at the top of the browser viewport (under the pos: fixed navbar) -->
+        </ul>
+      </nav>
+    </header>
+    <main>
+      <h2>About</h2>
+      <section class="content-block" id="about">
+        <!-- a card and some text -->
+        <a class="target" id="nav-about"></a>
+        <figure>
+          <img src="public/img/recent_headshot.jpg" alt="the creator of this website wearing a funny hat">
+          <figcaption>
+            <h3>Greg Minteer</h3>
+            <p>
+              {{ cardText }}
+            </p>
+          </figcaption>
+        </figure>
+        <p>
+          {{ longParagraph }}
+        </p>
+        <p>
+          {{ paragraph }}
+        </p>
+      </section>
+      <h2>Work</h2>
+      <section id="work" class="content-block">
+        <a class="target" id="nav-work"></a>
+        <div id="gallery">
+          <a href="https://mayorgak.github.io/lyric-look-up/" class="double">
+            <figure>
+              <img src="public/img/lyric-look-up.jpg" alt="Lyric Look-Up in action">
+              <figcaption>
+                <span>
+                  <h3>Lyric Look-Up</h3>
+                  <i class="material-icons">launch</i>
+                </span>
+                <p>Sing along with your favorite Spotify songs, with lyrics powered by Canarado!</p>
+                <p>Buzzwords: HTML, CSS, JavaScript, Bulma CSS, OAuth PKCE</p>
+              </figcaption>
+            </figure>
+          </a>
+          <a href="#">
+            <figure ng-controller="tile0">
+              <img src="https://placeimg.com/640/640/tech?r=1" alt="randomly generated placeholder">
+              <figcaption>
+                <span>
+                  <h3>{{ ::title }}</h3>
+                  <i class="material-icons">launch</i>
+                </span>
+                <p>{{ ::text }}</p>
+              </figcaption>
+            </figure>
+          </a>
+        </div>
+      </section>
+      <h2>Contact</h2>
+      <section id="contact" class="content-block">
+        <a href="mailto:gminteer@gmail.com">
+          <figure class="mono-black">
+            <img src="public/img/email.svg" alt="Email">
+            <figcaption>gminteer@gmail.com</figcaption>
+          </figure>
+        </a>
+        <a href="skype:gminteer?chat">
+          <figure>
+            <img src="public/img/social-skype.svg" alt="Skype">
+            <figcaption>gminteer</figcaption>
+          </figure>
+        </a>
+        <a href="https://linkedin.com/gminteer">
+          <figure>
+            <img src="public/img/social-linkedin.svg" alt="LinkedIn">
+            <figcaption>linkedin.com/gminteer</figcaption>
+          </figure>
+        </a>
+        <a href="https://github.com/gminteer">
+          <figure class="mono-black">
+            <img src="public/img/social-github.svg" alt="github">
+            <figcaption>github.com/gminteer</figcaption>
+          </figure>
+        </a>
+      </section>
+    </main>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Faker/3.1.0/faker.min.js"></script>
+    <script src="public/js/script.js" type="module"></script>
+  </body>
+  </html>
