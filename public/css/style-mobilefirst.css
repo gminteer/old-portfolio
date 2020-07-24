@@ -126,7 +126,6 @@ main {
   padding-top: 0.3em;
   padding-bottom: 0.3em;
   border-top: var(--border);
-  justify-self: center;
   width: 100%;
 }
 /* about_me.txt */
@@ -161,9 +160,15 @@ main {
   text-align: justify;
 }
 /* look at my stuff */
+#work {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
 #gallery {
   display: grid;
   justify-items: center;
+  align-self: center;
   grid-template-columns: repeat(auto-fill, 10em);
   grid-auto-rows: 10em;
   grid-gap: 0;
@@ -331,5 +336,122 @@ main {
   }
   .mono-black {
     filter: invert(100%);
+  }
+}
+/* things get bigger, part 1 */
+@media screen and (min-width: 375px) {
+  h1 {
+    font-size: x-large;
+  }
+  header nav a {
+    font-size: medium;
+  }
+  h2 {
+    font-size: xx-large;
+  }
+  #about {
+    display: inline;
+  }
+  #about figure {
+    float: left;
+    width: 12em;
+  }
+  #gallery {
+    grid-template-columns: repeat(auto-fill, 12em);
+    grid-auto-rows: 12em;
+  }
+  #gallery a {
+    width: 12em;
+    height: 12em;
+  }
+  #gallery .wide {
+    width: 24em;
+    height: 12em;
+  }
+  #gallery .tall {
+    width: 12em;
+    height: 24em;
+  }
+  #gallery .double {
+    width: 24em;
+    height: 24em;
+  }
+  #gallery figcaption h3 {
+    font-size: large;
+  }
+  #gallery figcaption p {
+    font-size: small;
+  }
+}
+/* things get bigger, part 2 */
+@media screen and (min-width: 768px) {
+  h1 {
+    font-size: xx-large;
+  }
+  header {
+    height: 2.25em;
+  }
+  header nav a {
+    font-size: xx-large;
+  }
+  .target {
+    top: -2.25em; /* always -(header.height) */
+  }
+  #gallery {
+    grid-template-columns: repeat(3, 16em);
+    grid-auto-rows: 16em;
+  }
+  #gallery a {
+    width: 16em;
+    height: 16em;
+  }
+  #gallery .wide {
+    width: 32em;
+    height: 16em;
+  }
+  #gallery .tall {
+    width: 16em;
+    height: 32em;
+  }
+  #gallery .double {
+    width: 32em;
+    height: 32em;
+  }
+  #about p {
+    font-size: medium;
+  }
+  #gallery figcaption p {
+    font-size: medium;
+  }
+  #contact figcaption {
+    display: unset;
+  }
+}
+/* wide enough to add a superfluous second column to main */
+@media screen and (min-width: 1024px) {
+  main {
+    display: grid;
+    grid-template-columns: 1fr 4fr;
+  }
+  .content-block {
+    border-top: none;
+    margin-top: 2em;
+  }
+  .label-block {
+    border-right: var(--border);
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    margin-top: 2em;
+  }
+  h2 {
+    text-align: right;
+    padding-right: 1em;
+  }
+}
+/* another gallery column */
+@media screen and (min-width: 1440px) {
+  #gallery {
+    grid-template-columns: repeat(4, 16em);
   }
 }
