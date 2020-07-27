@@ -2,6 +2,7 @@
 /* eslint-disable no-unused-vars */
 /* global faker */
 import Vue from 'https://cdn.jsdelivr.net/npm/vue@2.6.11/dist/vue.esm.browser.js';
+// import Vue from 'https://cdn.jsdelivr.net/npm/vue@2.6.11/dist/vue.esm.browser.min.js';
 
 const aboutVm = new Vue({
   el: '#about',
@@ -78,3 +79,14 @@ const fortuneController = getFortune().then(
       data,
     })
 );
+
+window.addEventListener('DOMContentLoaded', () => {
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach((entry) => {
+      const id = entry.target.id;
+      if (entry.intersectionRatio > 0) document.querySelector(`nav li a[href="#${id}"]`).classList.add('active');
+      else document.querySelector(`nav li a[href="#${id}"]`).classList.remove('active');
+    });
+  });
+  document.querySelectorAll('a.target[id]').forEach((target) => observer.observe(target));
+});
