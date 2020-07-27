@@ -1,8 +1,8 @@
 // Telling eslint to ignore unused variables because those Vue instances are doing things just by existing...
 /* eslint-disable no-unused-vars */
 /* global faker */
-import Vue from 'https://cdn.jsdelivr.net/npm/vue@2.6.11/dist/vue.esm.browser.js';
-// import Vue from 'https://cdn.jsdelivr.net/npm/vue@2.6.11/dist/vue.esm.browser.min.js';
+// import Vue from 'https://cdn.jsdelivr.net/npm/vue@2.6.11/dist/vue.esm.browser.js';
+import Vue from 'https://cdn.jsdelivr.net/npm/vue@2.6.11/dist/vue.esm.browser.min.js';
 
 const aboutVm = new Vue({
   el: '#about',

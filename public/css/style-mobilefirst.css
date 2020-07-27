@@ -285,14 +285,16 @@ main {
   }
   header nav {
     border-bottom: var(--border-width) solid white;
+    transition-duration: var(--link-fade-time);
   }
   header nav:hover {
     border-bottom-color: var(--link-color);
+  }
+  header nav ul li a {
     transition-duration: var(--link-fade-time);
   }
   header nav ul li a:hover {
     color: var(--link-color);
-    transition-duration: var(--link-fade-time);
   }
   #gallery a::after {
     content: '';
@@ -303,31 +305,35 @@ main {
     width: 100%;
     height: 100%;
     opacity: 0;
+    transition-duration: var(--link-fade-time);
   }
   #gallery a:hover::after {
     opacity: 1;
-    transition-duration: var(--link-fade-time);
   }
   #gallery figcaption {
     z-index: 1; /* on top of figure:hover::after */
   }
+  #gallery figcaption .link-icon {
+    display: none;
+  }
   #gallery figcaption p {
     opacity: 0;
+    transition-duration: var(--link-fade-time);
   }
   #gallery a:hover figcaption p {
     opacity: 1;
-    transition-duration: var(--link-fade-time);
   }
   #contact a {
     color: var(--border-color);
+    border-bottom: none;
   }
   #contact figure {
     border-color: var(--border-color);
+    transition-duration: var(--link-fade-time);
   }
   #contact figure:hover {
     color: var(--link-color);
     border-color: var(--link-color);
-    transition-duration: var(--link-fade-time);
   }
 }
 
