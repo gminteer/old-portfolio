@@ -150,6 +150,11 @@ main {
 #about figcaption h3 {
   font-family: var(--sans-font);
 }
+#about figcaption h4 {
+  font-family: var(--sans-font);
+  font-weight: lighter;
+  font-size: small;
+}
 #about figcaption p {
   font-size: small;
   font-style: italic;
@@ -307,10 +312,12 @@ main {
   #contact a {
     color: var(--border-color);
   }
+  #contact figure {
+    border-color: var(--border-color);
+  }
   #contact figure:hover {
     color: var(--link-color);
-    border-left-color: var(--link-color);
-    border-right-color: var(--link-color);
+    border-color: var(--link-color);
     transition-duration: var(--link-fade-time);
   }
 }
@@ -396,6 +403,9 @@ main {
   }
   .target {
     top: -2.25em; /* always -(header.height) */
+  }
+  #hero aside {
+    font-size: small;
   }
   #gallery {
     grid-template-columns: repeat(3, 16em);
