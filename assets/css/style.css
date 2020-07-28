@@ -28,6 +28,7 @@
   --link-fade-time: 0.55s;
   --sans-font: 'Open Sans', Arial, Helvetica, sans-serif;
   --mono-font: CGA, 'Consolas', 'Lucida Console', 'Monaco', 'Courier New', 'Courier', monospace;
+  --header-height: 1.85em;
 }
 /* globals */
 * {
@@ -109,7 +110,7 @@ header {
   position: sticky;
   top: 0;
   z-index: 9999; /* it feels like there should be a better way to do this */
-  height: 1.85em;
+  height: var(--header-height);
   margin-bottom: 0.2em;
 }
 h1 {
@@ -148,7 +149,7 @@ header nav a.active {
 .target {
   display: block;
   position: relative;
-  top: -1.85em; /* always -(header.height) */
+  top: calc(var(--header-height) * -1);
   visibility: hidden;
 }
 /* styling for actual content starts here */
@@ -451,6 +452,7 @@ main {
 @media screen and (min-width: 768px) {
   :root {
     --mono-font: EGA, 'Consolas', 'Lucida Console', 'Monaco', 'Courier New', 'Courier', monospace;
+    --header-height: 2.5em;
   }
   h1 {
     font-size: xx-large;
@@ -466,14 +468,8 @@ main {
     width: 80ch;
     font-size: medium;
   }
-  header {
-    height: 2.5em;
-  }
   header nav a {
     font-size: xx-large;
-  }
-  .target {
-    top: -2.5em; /* always -(header.height) */
   }
   #hero aside {
     font-size: small;
