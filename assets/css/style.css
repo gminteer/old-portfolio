@@ -313,6 +313,9 @@ main {
   padding: 0.1em 0.5em;
   font-family: var(--sans-font);
 }
+#contact a {
+  border-bottom: none;
+}
 /* only do hover bling if the browser can handle it */
 @media (hover: hover) {
   a {
