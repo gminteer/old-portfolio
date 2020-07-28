@@ -1,31 +1,40 @@
 <!DOCTYPE html>
 <html lang="en" ng-app="myApp">
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Open Sans">
-  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=EB Garamond">
-  <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
-  <link rel="stylesheet" href="public/css/style-mobilefirst.css">
-  <title>portfolio_template.html</title>
-</head>
-<body>
-  <!-- spash screen -->
-  <section id="hero">
-    <blockquote>
-      <pre>{{ text }}</pre>
-      <br>
-      <div>{{ source }}</div>
-    </blockquote>
-    <aside>(downsampled) Photo: Basile Morin / <a href="https://creativecommons.org/licenses/by-sa/4.0">CC BY-SA</a></aside>
-  </section>
-  <header>
-    <h1>~gminteer/ $</span></h1>
-    <nav>
-      <ul>
-        <li><a href="#nav-about">About</a></li>
-        <li><a href="#nav-work">Work</a></li>
-        <li><a href="#nav-contact">Contact</a></li>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Open Sans" />
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=EB Garamond" />
+    <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons" />
+    <link rel="stylesheet" href="assets/css/style.css" />
+    <title>portfolio_template.html</title>
+  </head>
+  <body>
+    <!-- spash screen -->
+    <section id="hero">
+      <blockquote>
+        <pre>{{ text }}</pre>
+        <br />
+        <div>{{ source }}</div>
+      </blockquote>
+      <div class="credits">
+        <aside>
+          (downsampled) Photo: &copy; <a href="https://commons.wikimedia.org/wiki/User:Basile_Morin">Basile Morin</a> /
+          <a href="https://creativecommons.org/licenses/by-sa/4.0">CC BY-SA</a>
+        </aside>
+        <aside>
+          Fonts: &copy; <a href="https://int10h.org">VileR</a> /
+          <a href="https://creativecommons.org/licenses/by-sa/4.0">CC BY-SA</a>
+        </aside>
+      </div>
+    </section>
+    <header>
+      <h1>~gminteer/ $</h1>
+      <nav>
+        <ul>
+          <li><a href="#nav-about">About</a></li>
+          <li><a href="#nav-work">Work</a></li>
+          <li><a href="#nav-contact">Contact</a></li>
         </ul>
       </nav>
     </header>
@@ -35,7 +44,7 @@
         <!-- a card and some text -->
         <a class="target" id="nav-about"></a>
         <figure>
-          <img src="public/img/recent_headshot.jpg" alt="the creator of this website wearing a funny hat">
+          <img src="assets/img/recent_headshot.jpg" alt="the creator of this website wearing a funny hat" />
           <figcaption>
             <h3>Greg Minteer</h3>
             <h4>{{ cardText }}</h4>
@@ -50,7 +59,7 @@
         <div id="gallery">
           <a href="https://mayorgak.github.io/lyric-look-up/" class="double">
             <figure>
-              <img src="public/img/lyric-look-up.jpg" alt="Lyric Look-Up in action">
+              <img src="assets/img/lyric-look-up.jpg" alt="Lyric Look-Up in action" />
               <figcaption>
                 <span>
                   <h3>Lyric Look-Up</h3>
@@ -72,81 +81,81 @@
           <tile size="640" keyword="tech" href="#"></tile>
           <tile size="640" keyword="nature" href="#"></tile>
           <tile size="640" keyword="animals" href="#"></tile>
-          </div>
+        </div>
       </section>
       <section class="label-block"><h2>Contact</h2></section>
       <section id="contact" class="content-block">
         <a class="target" id="nav-contact"></a>
         <a href="mailto:gminteer@gmail.com">
           <figure class="mono-black">
-            <img src="public/img/email.svg" alt="Email">
+            <img src="assets/img/email.svg" alt="Email" />
             <figcaption>gminteer@gmail.com</figcaption>
           </figure>
         </a>
         <a href="skype:gminteer?chat">
           <figure>
-            <img src="public/img/social-skype.svg" alt="Skype">
+            <img src="assets/img/social-skype.svg" alt="Skype" />
             <figcaption>gminteer</figcaption>
           </figure>
         </a>
         <a href="https://linkedin.com/gminteer">
           <figure>
-            <img src="public/img/social-linkedin.svg" alt="LinkedIn">
+            <img src="assets/img/social-linkedin.svg" alt="LinkedIn" />
             <figcaption>linkedin.com/gminteer</figcaption>
           </figure>
         </a>
         <a href="https://github.com/gminteer">
           <figure class="mono-black">
-            <img src="public/img/social-github.svg" alt="github">
+            <img src="assets/img/social-github.svg" alt="github" />
             <figcaption>github.com/gminteer</figcaption>
           </figure>
         </a>
       </section>
     </main>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/Faker/3.1.0/faker.min.js"></script>
-    <script src="public/js/script.js" type="module"></script>
+    <script src="assets/js/script.js" type="module"></script>
+    <!-- tile templates -->
+    <script type="text/x-template" id="tile-template">
+      <a :href="href">
+        <figure>
+          <img :src="src" alt="randomly generated placeholder">
+          <figcaption>
+            <span>
+              <h3>{{ title }}</h3>
+              <i class="material-icons link-icon">launch</i>
+            </span>
+            <p>{{ text }}</p>
+          </figcaption>
+        </figure>
+      </a>
+    </script>
+    <script type="text/x-template" id="wide-tile-template">
+      <a :href="href" class="wide">
+        <figure>
+          <img :src="src" alt="randomly generated placeholder">
+          <figcaption>
+            <span>
+              <h3>{{ title }}</h3>
+              <i class="material-icons link-icon">launch</i>
+            </span>
+            <p>{{ text }}</p>
+          </figcaption>
+        </figure>
+      </a>
+    </script>
+    <script type="text/x-template" id="tall-tile-template">
+      <a :href="href" class="tall">
+        <figure>
+          <img :src="src" alt="randomly generated placeholder">
+          <figcaption>
+            <span>
+              <h3>{{ title }}</h3>
+              <i class="material-icons link-icon">launch</i>
+            </span>
+            <p>{{ text }}</p>
+          </figcaption>
+        </figure>
+      </a>
+    </script>
   </body>
-  <!-- tile templates -->
-  <script type="text/x-template" id="tile-template">
-    <a :href="href">
-      <figure>
-        <img :src="src" alt="randomly generated placeholder">
-        <figcaption>
-          <span>
-            <h3>{{ title }}</h3>
-            <i class="material-icons link-icon">launch</i>
-          </span>
-          <p>{{ text }}</p>
-        </figcaption>
-      </figure>
-    </a>
-  </script>
-  <script type="text/x-template" id="wide-tile-template">
-    <a :href="href" class="wide">
-      <figure>
-        <img :src="src" alt="randomly generated placeholder">
-        <figcaption>
-          <span>
-            <h3>{{ title }}</h3>
-            <i class="material-icons link-icon">launch</i>
-          </span>
-          <p>{{ text }}</p>
-        </figcaption>
-      </figure>
-    </a>
-  </script>
-  <script type="text/x-template" id="tall-tile-template">
-    <a :href="href" class="tall">
-      <figure>
-        <img :src="src" alt="randomly generated placeholder">
-        <figcaption>
-          <span>
-            <h3>{{ title }}</h3>
-            <i class="material-icons link-icon">launch</i>
-          </span>
-          <p>{{ text }}</p>
-        </figcaption>
-      </figure>
-    </a>
-  </script>
 </html>
