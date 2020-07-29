@@ -403,6 +403,7 @@ main {
 /* things get bigger, part 1 */
 @media screen and (min-width: 375px) {
   :root {
+    --border-width: 0.25em;
     --tile-size: 12em;
   }
   h1 {
@@ -435,6 +436,7 @@ main {
 /* things get bigger, part 2 */
 @media screen and (min-width: 768px) {
   :root {
+    --border-width: 0.4em;
     --mono-font: EGA, 'Consolas', 'Lucida Console', 'Monaco', 'Courier New', 'Courier', monospace;
     --header-height: 2.5em;
     --tile-size: 16em;
@@ -498,7 +500,7 @@ main {
     padding-right: 1em;
   }
 }
-/* another gallery column */
+/* another gallery column and/or stop scaling the hero background to maintain the part where the fortune cookie is overlaid on the Kabukicho gate */
 @media screen and (min-width: 1440px) {
   :root {
     --tile-size: 18em;
