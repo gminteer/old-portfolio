@@ -29,6 +29,7 @@
   --sans-font: 'Open Sans', Arial, Helvetica, sans-serif;
   --mono-font: CGA, 'Consolas', 'Lucida Console', 'Monaco', 'Courier New', 'Courier', monospace;
   --header-height: 1.85em;
+  --tile-size: 10em;
 }
 /* globals */
 * {
@@ -219,16 +220,16 @@ main {
   display: grid;
   justify-items: center;
   align-self: center;
-  grid-template-columns: repeat(auto-fill, 10em);
-  grid-auto-rows: 10em;
+  grid-template-columns: repeat(auto-fill, var(--tile-size));
+  grid-auto-rows: var(--tile-size);
   grid-gap: 0;
   grid-auto-flow: dense;
 }
 /* actual tile styles */
 #gallery a {
   display: flex;
-  width: 10em;
-  height: 10em;
+  width: var(--tile-size);
+  height: var(--tile-size);
   position: relative;
   overflow: hidden;
 }
@@ -275,19 +276,19 @@ main {
 }
 /* non-standard tile sizes */
 #gallery .double {
-  width: 20em;
-  height: 20em;
+  width: calc(var(--tile-size) * 2);
+  height: calc(var(--tile-size) * 2);
   grid-row: span 2;
   grid-column: span 2;
 }
 #gallery .wide {
-  width: 20em;
-  height: 10em;
+  width: calc(var(--tile-size) * 2);
+  height: var(--tile-size);
   grid-column: span 2;
 }
 #gallery .tall {
-  width: 10em;
-  height: 20em;
+  width: var(--tile-size);
+  height: calc(var(--tile-size) * 2);
   grid-row: span 2;
 }
 /* like comment subscribe */
@@ -401,6 +402,9 @@ main {
 }
 /* things get bigger, part 1 */
 @media screen and (min-width: 375px) {
+  :root {
+    --tile-size: 12em;
+  }
   h1 {
     font-size: x-large;
   }
@@ -421,26 +425,6 @@ main {
     float: left;
     width: 12em;
   }
-  #gallery {
-    grid-template-columns: repeat(auto-fill, 12em);
-    grid-auto-rows: 12em;
-  }
-  #gallery a {
-    width: 12em;
-    height: 12em;
-  }
-  #gallery .wide {
-    width: 24em;
-    height: 12em;
-  }
-  #gallery .tall {
-    width: 12em;
-    height: 24em;
-  }
-  #gallery .double {
-    width: 24em;
-    height: 24em;
-  }
   #gallery figcaption h3 {
     font-size: large;
   }
@@ -453,6 +437,7 @@ main {
   :root {
     --mono-font: EGA, 'Consolas', 'Lucida Console', 'Monaco', 'Courier New', 'Courier', monospace;
     --header-height: 2.5em;
+    --tile-size: 16em;
   }
   h1 {
     font-size: xx-large;
@@ -473,26 +458,6 @@ main {
   }
   #hero aside {
     font-size: small;
-  }
-  #gallery {
-    grid-template-columns: repeat(3, 16em);
-    grid-auto-rows: 16em;
-  }
-  #gallery a {
-    width: 16em;
-    height: 16em;
-  }
-  #gallery .wide {
-    width: 32em;
-    height: 16em;
-  }
-  #gallery .tall {
-    width: 16em;
-    height: 32em;
-  }
-  #gallery .double {
-    width: 32em;
-    height: 32em;
   }
   #about p {
     font-size: medium;
@@ -535,6 +500,9 @@ main {
 }
 /* another gallery column */
 @media screen and (min-width: 1440px) {
+  :root {
+    --tile-size: 18em;
+  }
   #hero {
     background-size: contain;
     background-repeat: no-repeat;
@@ -545,6 +513,6 @@ main {
     font-size: x-large;
   }
   #gallery {
-    grid-template-columns: repeat(4, 16em);
+    grid-template-columns: repeat(4, var(--tile-size));
   }
 }
