@@ -77,7 +77,8 @@ async function getFortune() {
     // slice out fortune cookie attribution if one exists (hopefully I'm right and attributions consistently start with "\n\t\t-- ")
     const cookieAttribution = data.cookie.split('\n\t\t-- ');
     const fortune = {};
-    if (cookieAttribution.length > 1) {
+    if (cookieAttribution.length === 2) {
+      // doing this instead of checking if cookieAttribution.length > 1 probably fails better if cookieAttribution.length > 2 which I don't think should actually happen to begin with.
       fortune.text = cookieAttribution[0];
       fortune.source = `- ${cookieAttribution[1]} (via ${data.file}#${data['file-id']})`;
     } else {
@@ -87,20 +88,15 @@ async function getFortune() {
     return fortune;
   }
 }
-const fortuneController = getFortune().then(
-  (data) =>
-    new Vue({
-      el: '#hero',
-      data,
-    })
-);
-
+// IIFEs are simultaneously ugly and kind of beautiful
+const fortuneController = (async () => new Vue({el: '#hero', data: await getFortune()}))(); // <-- that punctuation pile-up is stupid
+// in a "sane" programming language that would be something like "fortune_ctlr = Vue(el: '#hero', data: async.await(get_fortune()))"
 window.addEventListener('DOMContentLoaded', () => {
   const observer = new IntersectionObserver((entries) => {
     entries.forEach((entry) => {
-      const id = entry.target.id;
-      if (entry.intersectionRatio > 0) document.querySelector(`nav li a[href="#${id}"]`).classList.add('active');
-      else document.querySelector(`nav li a[href="#${id}"]`).classList.remove('active');
+      if (entry.intersectionRatio > 0)
+        document.querySelector(`nav li a[href="#${entry.target.id}"]`).classList.add('active');
+      else document.querySelector(`nav li a[href="#${entry.target.id}"]`).classList.remove('active');
     });
   });
   document.querySelectorAll('a.target[id]').forEach((target) => observer.observe(target));
