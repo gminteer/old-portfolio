@@ -14,47 +14,40 @@ const aboutVm = new Vue({
 });
 
 const TileComponent = {
-  props: ['size', 'keyword', 'href'],
+  props: ['size', 'keyword', 'href', 'type'],
   data() {
+    const size = this.size ? this.size : 640;
+    let width;
+    let height;
+    let title;
+    let text;
+    if (this.type === 'wide') {
+      width = size * 2;
+      height = size;
+      title = faker.commerce.productName();
+      text = faker.lorem.sentence();
+    } else if (this.type === 'tall') {
+      width = size;
+      height = size * 2;
+      title = `${faker.hacker.adjective()} ${faker.hacker.noun()}`;
+      text = faker.lorem.sentences();
+    } else {
+      width = height = size;
+      title = `${faker.hacker.adjective()} ${faker.hacker.noun()}`;
+      text = faker.lorem.sentence();
+    }
     return {
-      title: `${faker.hacker.adjective()} ${faker.hacker.noun()}`,
-      text: faker.lorem.sentence(),
-      src: `https://placeimg.com/${this.size}/${this.size}/${this.keyword}?q=${Math.floor(Math.random() * 256)}`,
+      title,
+      text,
+      src: `https://placeimg.com/${width}/${height}/${this.keyword}?q=${Math.floor(Math.random() * 256)}`,
     };
   },
   template: '#tile-template',
 };
-
-const WideTileComponent = {
-  props: ['size', 'keyword', 'href'],
-  data() {
-    return {
-      title: faker.commerce.productName(),
-      text: faker.lorem.sentences(),
-      src: `https://placeimg.com/${this.size * 2}/${this.size}/${this.keyword}?q=${Math.floor(Math.random() * 256)}`,
-    };
-  },
-  template: '#wide-tile-template',
-};
-
-const TallTileComponent = {
-  props: ['size', 'keyword', 'href'],
-  data() {
-    return {
-      title: `${faker.hacker.adjective()} ${faker.hacker.noun()}`,
-      text: faker.lorem.paragraph(),
-      src: `https://placeimg.com/${this.size}/${this.size * 2}/${this.keyword}?q=${Math.floor(Math.random() * 256)}`,
-    };
-  },
-  template: '#tall-tile-template',
-};
-
 const galleryVm = new Vue({
   el: '#gallery',
   components: {
     tile: TileComponent,
-    'wide-tile': WideTileComponent,
-    'tall-tile': TallTileComponent,
   },
 });
 

@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en" ng-app="myApp">
+<html lang="en">
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
@@ -71,16 +71,16 @@
             </figure>
           </a>
           <!-- tiles -->
-          <wide-tile size="640" keyword="architecture" href="#"></wide-tile>
-          <tall-tile size="640" keyword="animals" href="#"></tall-tile>
-          <tile size="640" keyword="tech" href="#"></tile>
-          <wide-tile size="640" keyword="nature" href="#"></wide-tile>
-          <tile size="640" keyword="nature" href="#"></tile>
-          <tile size="640" keyword="architecture" href="#"></tile>
-          <tall-tile size="640" keyword="tech" href="#"></tall-tile>
-          <tile size="640" keyword="tech" href="#"></tile>
-          <tile size="640" keyword="nature" href="#"></tile>
-          <tile size="640" keyword="animals" href="#"></tile>
+          <tile type="wide" keyword="architecture" href="#"></tile>
+          <tile type="tall" keyword="animals" href="#"></tile>
+          <tile keyword="tech" href="#"></tile>
+          <tile type="wide" size="640" keyword="nature" href="#"></tile>
+          <tile keyword="nature" href="#"></tile>
+          <tile keyword="architecture" href="#"></tile>
+          <tile type="tall" keyword="tech" href="#"></tile>
+          <tile keyword="tech" href="#"></tile>
+          <tile keyword="nature" href="#"></tile>
+          <tile keyword="animals" href="#"></tile>
         </div>
       </section>
       <section class="label-block"><h2>Contact</h2></section>
@@ -116,35 +116,7 @@
     <script src="assets/js/script.js" type="module"></script>
     <!-- tile templates -->
     <script type="text/x-template" id="tile-template">
-      <a :href="href">
-        <figure>
-          <img :src="src" alt="randomly generated placeholder">
-          <figcaption>
-            <span>
-              <h3>{{ title }}</h3>
-              <i class="material-icons link-icon">launch</i>
-            </span>
-            <p>{{ text }}</p>
-          </figcaption>
-        </figure>
-      </a>
-    </script>
-    <script type="text/x-template" id="wide-tile-template">
-      <a :href="href" class="wide">
-        <figure>
-          <img :src="src" alt="randomly generated placeholder">
-          <figcaption>
-            <span>
-              <h3>{{ title }}</h3>
-              <i class="material-icons link-icon">launch</i>
-            </span>
-            <p>{{ text }}</p>
-          </figcaption>
-        </figure>
-      </a>
-    </script>
-    <script type="text/x-template" id="tall-tile-template">
-      <a :href="href" class="tall">
+      <a :href="href" :class="type">
         <figure>
           <img :src="src" alt="randomly generated placeholder">
           <figcaption>
