@@ -42,7 +42,7 @@ const TileComponent = {
       src: `https://placeimg.com/${width}/${height}/${this.keyword}?q=${Math.floor(Math.random() * 256)}`,
     };
   },
-  template: '#tile-template',
+  template: '#tile-component',
 };
 const galleryVm = new Vue({
   el: '#gallery',
@@ -52,14 +52,16 @@ const galleryVm = new Vue({
 });
 
 // layout tester for fortune data
-// function getFortune80Col() {
+// function getFortune80Col(numLines = 12) {
+//   let text = '00000000001111111111222222222233333333334444444444555555555566666666667777777777\n';
+//   for (let i = 0; i < numLines; i++)
+//     text += '01234567890123456789012345678901234567890123456789012345678901234567890123456789\n';
 //   return {
-//     text:
-//       '00000000001111111111222222222233333333334444444444555555555566666666667777777777\n01234567890123456789012345678901234567890123456789012345678901234567890123456789\n01234567890123456789012345678901234567890123456789012345678901234567890123456789\n\n01234567890123456789012345678901234567890123456789012345678901234567890123456789\n01234567890123456789012345678901234567890123456789012345678901234567890123456789\n',
-//     source: 'This Website',
+//     text,
+//     source: '- This Website',
 //   };
 // }
-// const fortuneController = new Vue({el: '#hero', data: getFortune80Col()});
+// const fortuneVm = new Vue({el: '#hero', data: getFortune80Col()});
 
 // random fortunes from some dude that works for Google that set up a REST API for the 30+ year old UNIX fortune program
 async function getFortune() {
@@ -68,7 +70,7 @@ async function getFortune() {
   });
   if (!response.ok) {
     console.error(response);
-    return {text: 'something went wrong :(', source: 'This Website'};
+    return {text: 'something went wrong :(', source: '- This Website'};
   }
   const data = await response.json();
   if (data.file.includes('/off/')) {
@@ -89,8 +91,19 @@ async function getFortune() {
     return fortune;
   }
 }
-// IIFEs are simultaneously ugly and kind of beautiful
-const fortuneVm = (async () => new Vue({el: '#hero', data: await getFortune()}))(); // <-- that punctuation pile-up is stupid
+function setElSizeInCss(el) {
+  el.style.setProperty('--fortune-width', `${el.offsetWidth}px`);
+  el.style.setProperty('--fortune-height', `${el.offsetHeight}px`);
+  console.debug(`el: ${el}, height: ${el.offsetHeight}, width: ${el.offsetWidth}`);
+}
+async function createfortuneVm() {
+  const fortuneVm = new Vue({el: '.fortune', data: await getFortune()});
+  setElSizeInCss(fortuneVm.$el);
+  window.addEventListener('resize', () => setElSizeInCss(fortuneVm.$el));
+  return fortuneVm;
+}
+const fortuneVm = (async () => await createfortuneVm())(); // <-- that punctuation pile-up is stupid
+
 window.addEventListener('DOMContentLoaded', () => {
   const observer = new IntersectionObserver((entries) => {
     entries.forEach((entry) => {

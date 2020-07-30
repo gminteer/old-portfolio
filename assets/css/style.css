@@ -28,6 +28,7 @@
   --link-fade-time: 0.55s;
   --sans-font: 'Open Sans', Arial, Helvetica, sans-serif;
   --mono-font: CGA, 'Consolas', 'Lucida Console', 'Monaco', 'Courier New', 'Courier', monospace;
+  --quote-width: 40ch;
   --header-height: 1.85em;
   --tile-size: 10em;
 }
@@ -62,10 +63,10 @@ img {
   position: absolute;
   font-family: var(--mono-font);
   font-size: 14px;
-  top: 18.15vh;
-  transform: translateY(-50%);
+  top: 18vh;
+  margin-top: max(calc(var(--fortune-height) / -2), -18vh);
   left: 50%;
-  margin-left: -20ch;
+  margin-left: calc(calc(var(--fortune-width) / -2) - 0.5ch);
   background-color: var(--overlay-fill);
   border: var(--border);
 }
@@ -74,7 +75,7 @@ img {
   font-size: 14px;
   white-space: pre-wrap;
   word-wrap: break-word;
-  width: 40ch;
+  max-width: var(--quote-width);
 }
 #hero blockquote div {
   font-style: italic;
@@ -96,12 +97,17 @@ img {
   text-align: right;
   font-style: italic;
   font-size: xx-small;
+  padding: 0.1em 0.1em;
+}
+#hero aside a {
+  border-bottom: 0.1em solid var(--link-color);
 }
 /* the stuff glued at the top of the screen */
 header {
   background-image: linear-gradient(var(--overlay-fill), var(--overlay-fill)), url(/assets/img/hero.jpg);
   background-size: cover;
   background-attachment: fixed;
+  background-position: top;
   display: flex;
   flex-direction: row;
   justify-content: space-between;
@@ -113,6 +119,7 @@ header {
   z-index: 9999; /* it feels like there should be a better way to do this */
   height: var(--header-height);
   margin-bottom: 0.2em;
+  padding: 0.1em 0.1em;
 }
 h1 {
   padding-left: 0.25em;
@@ -232,6 +239,7 @@ main {
   height: var(--tile-size);
   position: relative;
   overflow: hidden;
+  border-bottom: none;
 }
 #gallery figcaption {
   position: absolute;
@@ -403,7 +411,6 @@ main {
 /* things get bigger, part 1 */
 @media screen and (min-width: 375px) {
   :root {
-    --border-width: 0.25em;
     --tile-size: 12em;
   }
   h1 {
@@ -436,23 +443,18 @@ main {
 /* things get bigger, part 2 */
 @media screen and (min-width: 768px) {
   :root {
-    --border-width: 0.4em;
+    --border-width: 0.25em;
     --mono-font: EGA, 'Consolas', 'Lucida Console', 'Monaco', 'Courier New', 'Courier', monospace;
-    --header-height: 2.5em;
+    --header-height: 2.85em;
     --tile-size: 16em;
+    --quote-width: 80ch;
   }
   h1 {
     font-size: xx-large;
   }
-  #hero blockquote {
-    margin-left: -40ch;
-    font-size: medium;
-  }
-  #hero blockquote div {
-    font-size: medium;
-  }
+  #hero blockquote,
+  #hero blockquote div,
   #hero blockquote pre {
-    width: 80ch;
     font-size: medium;
   }
   header nav a {
@@ -500,7 +502,7 @@ main {
     padding-right: 1em;
   }
 }
-/* another gallery column and/or stop scaling the hero background to maintain the part where the fortune cookie is overlaid on the Kabukicho gate */
+/* another gallery column and stop scaling the hero background so the fortune cookie stays roughly overlaid on the Kabukicho gate */
 @media screen and (min-width: 1440px) {
   :root {
     --tile-size: 18em;

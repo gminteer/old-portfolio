@@ -12,7 +12,7 @@
   <body>
     <!-- spash screen -->
     <section id="hero">
-      <blockquote>
+      <blockquote class="fortune">
         <pre>{{ text }}</pre>
         <br />
         <div>{{ source }}</div>
@@ -115,7 +115,7 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/Faker/3.1.0/faker.min.js"></script>
     <script src="assets/js/script.js" type="module"></script>
     <!-- tile templates -->
-    <script type="text/x-template" id="tile-template">
+    <script type="text/x-template" id="tile-component">
       <a :href="href" :class="type">
         <figure>
           <img :src="src" alt="randomly generated placeholder">
