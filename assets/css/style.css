@@ -351,7 +351,7 @@ main {
     opacity: 1;
   }
   #gallery figcaption {
-    z-index: 1; /* on top of figure:hover::after */
+    z-index: 1; /* on top of a:hover::after */
   }
   #gallery figcaption .link-icon {
     display: none;

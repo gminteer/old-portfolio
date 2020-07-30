@@ -72,6 +72,7 @@ async function getFortune() {
   }
   const data = await response.json();
   if (data.file.includes('/off/')) {
+    // censor fortunes in /off/ because they're "offensive" and I can't pass fortune command line arguments to filter on my end and {{ something_about_putting_your_best_foot_forward }}
     return {text: "You miss 100% of the shots you don't take.", source: '- Albert Einstein'};
   } else {
     // slice out fortune cookie attribution if one exists (hopefully I'm right and attributions consistently start with "\n\t\t-- ")
@@ -89,8 +90,7 @@ async function getFortune() {
   }
 }
 // IIFEs are simultaneously ugly and kind of beautiful
-const fortuneController = (async () => new Vue({el: '#hero', data: await getFortune()}))(); // <-- that punctuation pile-up is stupid
-// in a "sane" programming language that would be something like "fortune_ctlr = Vue(el: '#hero', data: async.await(get_fortune()))"
+const fortuneVm = (async () => new Vue({el: '#hero', data: await getFortune()}))(); // <-- that punctuation pile-up is stupid
 window.addEventListener('DOMContentLoaded', () => {
   const observer = new IntersectionObserver((entries) => {
     entries.forEach((entry) => {
