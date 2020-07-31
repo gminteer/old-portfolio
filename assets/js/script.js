@@ -16,7 +16,7 @@ const aboutVm = new Vue({
 const TileComponent = {
   props: ['size', 'keyword', 'href', 'type'],
   data() {
-    const size = this.size ? this.size : 640;
+    const size = this.size ? this.size : 320;
     let width;
     let height;
     let title;
@@ -70,12 +70,12 @@ async function getFortune() {
   });
   if (!response.ok) {
     console.error(response);
-    return {text: 'something went wrong :(', source: '- This Website'};
+    return {text: 'something went wrong :(', source: '- This Website', file: ''};
   }
   const data = await response.json();
   if (data.file.includes('/off/')) {
     // censor fortunes in /off/ because they're "offensive" and I can't pass fortune command line arguments to filter on my end and {{ something_about_putting_your_best_foot_forward }}
-    return {text: "You miss 100% of the shots you don't take.", source: '- Albert Einstein'};
+    return {text: "You miss 100% of the shots you don't take.", source: '- Albert Einstein', file: ''};
   } else {
     // slice out fortune cookie attribution if one exists (hopefully I'm right and attributions consistently start with "\n\t\t-- ")
     const cookieAttribution = data.cookie.split('\n\t\t-- ');
@@ -83,17 +83,19 @@ async function getFortune() {
     if (cookieAttribution.length === 2) {
       // doing this instead of checking if cookieAttribution.length > 1 probably fails better if cookieAttribution.length > 2 which I don't think should actually happen to begin with.
       fortune.text = cookieAttribution[0];
-      fortune.source = `- ${cookieAttribution[1]} (via ${data.file}#${data['file-id']})`;
+      fortune.source = `- ${cookieAttribution[1]}`;
+      fortune.file = `(${data.file}#${data['file-id']})`;
     } else {
       fortune.text = data.cookie;
-      fortune.source = `${data.file}#${data['file-id']}`;
+      fortune.source = '';
+      fortune.file = `${data.file}#${data['file-id']}`;
     }
     return fortune;
   }
 }
 function setElSizeInCss(el) {
-  el.style.setProperty('--fortune-width', `${el.offsetWidth}px`);
-  el.style.setProperty('--fortune-height', `${el.offsetHeight}px`);
+  el.style.setProperty('--el-width', `${el.offsetWidth}px`);
+  el.style.setProperty('--el-height', `${el.offsetHeight}px`);
   console.debug(`el: ${el}, height: ${el.offsetHeight}, width: ${el.offsetWidth}`);
 }
 async function createfortuneVm() {

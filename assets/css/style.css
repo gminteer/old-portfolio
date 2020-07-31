@@ -32,6 +32,12 @@
   --header-height: 1.85em;
   --tile-size: 10em;
 }
+.webp {
+  --hero-img: url('/assets/img/hero-mobile.webp');
+}
+.no-webp {
+  --hero-img: url('/assets/img/hero-mobile.jpg');
+}
 /* globals */
 * {
   margin: 0;
@@ -42,7 +48,6 @@
 a {
   font-family: var(--sans-font);
   text-decoration: none;
-  border-bottom: var(--link-border);
 }
 img {
   width: 100%;
@@ -50,7 +55,7 @@ img {
 }
 /* page hero */
 #hero {
-  background-image: url('/assets/img/hero.jpg');
+  background-image: var(--hero-img);
   background-size: cover;
   background-attachment: fixed;
   background-position: top;
@@ -58,31 +63,31 @@ img {
   color: white;
   position: relative;
 }
-#hero blockquote {
+.fortune {
   width: fit-content;
   position: absolute;
   font-family: var(--mono-font);
-  font-size: 14px;
+  font-size: small;
   top: 18vh;
-  margin-top: max(calc(var(--fortune-height) / -2), -18vh);
+  margin-top: max(calc(var(--el-height) / -2), -18vh);
   left: 50%;
-  margin-left: calc(calc(var(--fortune-width) / -2) - 0.5ch);
+  margin-left: calc(var(--el-width) / -2);
   background-color: var(--overlay-fill);
   border: var(--border);
 }
-#hero blockquote pre {
+.fortune pre {
   font-family: var(--mono-font);
   font-size: 14px;
   white-space: pre-wrap;
   word-wrap: break-word;
   max-width: var(--quote-width);
 }
-#hero blockquote div {
+.fortune div {
   font-style: italic;
-  font-size: x-small;
+  font-size: small;
   text-align: right;
 }
-#hero .credits {
+.credits {
   position: absolute;
   bottom: 0;
   right: 0;
@@ -90,21 +95,21 @@ img {
   border: var(--border);
   margin: 0.15em;
 }
-#hero .credits a {
+.credits a {
   color: white;
 }
-#hero aside {
+.credits aside {
   text-align: right;
   font-style: italic;
-  font-size: xx-small;
+  font-size: small;
   padding: 0.1em 0.1em;
 }
-#hero aside a {
+.credits aside a {
   border-bottom: 0.1em solid var(--link-color);
 }
 /* the stuff glued at the top of the screen */
 header {
-  background-image: linear-gradient(var(--overlay-fill), var(--overlay-fill)), url(/assets/img/hero.jpg);
+  background-image: linear-gradient(var(--overlay-fill), var(--overlay-fill)), var(--hero-img);
   background-size: cover;
   background-attachment: fixed;
   background-position: top;
@@ -133,11 +138,10 @@ header nav {
   justify-content: flex-end;
   height: 100%;
   align-items: flex-end;
-  border-bottom: var(--border-width) solid white;
+  border-bottom: var(--link-border);
 }
 header nav a {
   color: white;
-  border-bottom: none;
 }
 header nav ul {
   list-style: none;
@@ -214,7 +218,7 @@ main {
 }
 #about p {
   padding: 0.3em 1em;
-  font-size: x-small;
+  font-size: small;
   text-align: justify;
 }
 /* look at my stuff */
@@ -239,7 +243,6 @@ main {
   height: var(--tile-size);
   position: relative;
   overflow: hidden;
-  border-bottom: none;
 }
 #gallery figcaption {
   position: absolute;
@@ -279,7 +282,7 @@ main {
 #gallery figcaption p {
   font-weight: light;
   font-style: italic;
-  font-size: x-small;
+  font-size: small;
   padding-right: 1.25em;
 }
 /* non-standard tile sizes */
@@ -322,9 +325,6 @@ main {
   display: none;
   padding: 0.1em 0.5em;
   font-family: var(--sans-font);
-}
-#contact a {
-  border-bottom: none;
 }
 /* only do hover bling if the browser can handle it */
 @media (hover: hover) {
@@ -373,7 +373,6 @@ main {
   }
   #contact a {
     color: var(--border-color);
-    border-bottom: none;
   }
   #contact figure {
     border-color: var(--border-color);
@@ -416,9 +415,9 @@ main {
   h1 {
     font-size: x-large;
   }
-  #hero blockquote,
-  #hero blockquote pre {
-    font-size: large;
+  .fortune,
+  .fortune pre {
+    font-size: medium;
   }
   header nav a {
     font-size: medium;
@@ -442,6 +441,12 @@ main {
 }
 /* things get bigger, part 2 */
 @media screen and (min-width: 768px) {
+  .webp {
+    --hero-img: url('/assets/img/hero.webp');
+  }
+  .no-webp {
+    --hero-img: url('/assets/img/hero.jpg');
+  }
   :root {
     --border-width: 0.25em;
     --mono-font: EGA, 'Consolas', 'Lucida Console', 'Monaco', 'Courier New', 'Courier', monospace;
@@ -452,15 +457,15 @@ main {
   h1 {
     font-size: xx-large;
   }
-  #hero blockquote,
-  #hero blockquote div,
-  #hero blockquote pre {
+  .fortune,
+  .fortune div,
+  .fortune pre {
     font-size: medium;
   }
   header nav a {
     font-size: xx-large;
   }
-  #hero aside {
+  .credits aside {
     font-size: small;
   }
   #about p {
@@ -478,8 +483,8 @@ main {
   :root {
     --mono-font: VGA, 'Consolas', 'Lucida Console', 'Monaco', 'Courier New', 'Courier', monospace;
   }
-  #hero blockquote,
-  #hero blockquote pre {
+  .fortune,
+  .fortune pre {
     font-size: large;
   }
   main {
@@ -512,8 +517,8 @@ main {
     background-repeat: no-repeat;
     background-color: black;
   }
-  #hero blockquote,
-  #hero blockquote pre {
+  .fortune,
+  .fortune pre {
     font-size: x-large;
   }
   #gallery {
