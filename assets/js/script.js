@@ -14,25 +14,29 @@ const aboutVm = new Vue({
 });
 
 const TileComponent = {
-  props: ['size', 'keyword', 'href', 'type'],
+  props: {
+    size: {default: 320, type: Number},
+    keyword: {default: 'tech', type: String},
+    href: {default: '#', type: String},
+    type: {default: null, type: String},
+  },
   data() {
-    const size = this.size ? this.size : 320;
     let width;
     let height;
     let title;
     let text;
     if (this.type === 'wide') {
-      width = size * 2;
-      height = size;
+      width = this.size * 2;
+      height = this.size;
       title = faker.commerce.productName();
       text = faker.lorem.sentence();
     } else if (this.type === 'tall') {
-      width = size;
-      height = size * 2;
+      width = this.size;
+      height = this.size * 2;
       title = `${faker.hacker.adjective()} ${faker.hacker.noun()}`;
       text = faker.lorem.sentences();
     } else {
-      width = height = size;
+      width = height = this.size;
       title = `${faker.hacker.adjective()} ${faker.hacker.noun()}`;
       text = faker.lorem.sentence();
     }
