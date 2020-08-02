@@ -512,7 +512,8 @@ main {
   :root {
     --tile-size: 18em;
   }
-  #hero {
+  #hero,
+  header {
     background-size: contain;
     background-repeat: no-repeat;
     background-color: black;
