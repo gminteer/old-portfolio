@@ -65,6 +65,7 @@ const galleryVm = new Vue({
 //     source: '- This Website',
 //   };
 // }
+// TODO: this also needs to listen to resize events/call exposeElSizeInCss if it gets turned back on
 // const fortuneVm = new Vue({el: '#hero', data: getFortune80Col()});
 
 // random fortunes from some dude that works for Google that set up a REST API for the 30+ year old UNIX fortune program
@@ -97,15 +98,14 @@ async function getFortune() {
     return fortune;
   }
 }
-function setElSizeInCss(el) {
+function exposeElSizeInCss(el) {
   el.style.setProperty('--el-width', `${el.offsetWidth}px`);
   el.style.setProperty('--el-height', `${el.offsetHeight}px`);
-  console.debug(`el: ${el}, height: ${el.offsetHeight}, width: ${el.offsetWidth}`);
 }
 async function createfortuneVm() {
   const fortuneVm = new Vue({el: '.fortune', data: await getFortune()});
-  setElSizeInCss(fortuneVm.$el);
-  window.addEventListener('resize', () => setElSizeInCss(fortuneVm.$el));
+  exposeElSizeInCss(fortuneVm.$el);
+  window.addEventListener('resize', () => exposeElSizeInCss(fortuneVm.$el));
   return fortuneVm;
 }
 const fortuneVm = (async () => await createfortuneVm())(); // <-- that punctuation pile-up is stupid
